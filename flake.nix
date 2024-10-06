@@ -1,10 +1,10 @@
 {
-    description = "My first flake";
+    description = "System configuration flake";
 
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-unstable";
         home-manager = {
-            url = "github:nix-community/home-manager";
+            url = "github:nix-community/home-manager/master";
             inputs.nixpkgs.follows = "nixpkgs";
           };
     };
