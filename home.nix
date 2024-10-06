@@ -22,4 +22,27 @@
   home.packages = with pkgs; [
     timer
   ];
+
+  programs.tmux = {
+      enable = true;
+      # Modify keybinds
+      extraConfig = ''
+        # remap prefix from "C-b" to "M-c" (e.g. alt + c)
+        unbind C-b
+        set-option -g prefix M-c
+        bind-key M-a send-prefix
+
+        # split panes with i and -
+        bind i split-window -h 
+        bind - split-window -v 
+        unbind '"'
+        unbind %
+
+        # Move between panes with vi keybinds
+        bind h select-pane -L
+        bind j select-pane -D
+        bind k select-pane -U
+        bind l select-pane -R
+      '';
+    };
 }
