@@ -19,7 +19,7 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.programs = with pkgs; [
+  home.packages = with pkgs; [
     timer
   ];
 }
