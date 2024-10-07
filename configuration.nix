@@ -144,6 +144,7 @@
 
      # Miscellaneous tools
      git
+     htop
      wget
      neovim
      ripgrep
