@@ -27,9 +27,9 @@
       enable = true;
       # Modify keybinds
       extraConfig = ''
-        # remap prefix from "C-b" to "M-c" (e.g. alt + c)
+        # remap prefix from "C-b" to "M-t" (e.g. alt + t)
         unbind C-b
-        set-option -g prefix M-c
+        set-option -g prefix M-t
         bind-key M-a send-prefix
 
         # split panes with i and -

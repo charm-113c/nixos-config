@@ -67,7 +67,13 @@
       layout = "it";
       variant = "";
     };
+
+    # Enable Nvidia drivers
+    videoDrivers = [ "nvidia" ];
   };
+
+  # GPU pkgs version is > 560 so we need 
+  hardware.nvidia.open = true;
 
   # Configure console keymap
   console = {
@@ -164,7 +170,6 @@
 
      # Gnome things
      gnome.gnome-tweaks
-     gnome.gnome-software
      gnome-extension-manager
      gnomeExtensions.toggle-alacritty
 
@@ -183,6 +188,9 @@
      python3
      go
 
+     # Hyprland dependencies
+     egl-wayland # Nvidia GPU compatibility component
+
   ];
 
   # Amane Kanata!
@@ -193,7 +201,7 @@
     keyboards = { 
       "logi".config = ''
 (defsrc 
-  caps ralt tab
+  caps ralt tab 
 )
 
 (defalias 
@@ -248,4 +256,8 @@
     };
   };
 
-  }
+  # ### Hyprland stuff ###
+  # Enable polkit for Hyprland
+  security.polkit.enable = true; # Omarun!
+
+}
