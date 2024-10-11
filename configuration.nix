@@ -115,14 +115,19 @@
 
       shellAliases = {
         ll = "ls -l";
-        edit = "sudo -e";
+        edit = "~/.dotfiles/ && nvim";
         update = "sudo nixos-rebuild switch";
+        sysupdate = "sudo nix flake update | sudo nixos-rebuild switch";
       };
 
       # history.size = 10000;
       # history.ignoreAllDups = true;
       # history.path = "$HOME/.zsh_history";
       # history.ignorePatterns = ["rm *" "pkill *" "cp *"];
+    };
+
+    hyprland = {
+      enable = true;
     };
   };
   
@@ -178,6 +183,7 @@
      discord
      thunderbird
      libreoffice-qt6-fresh
+     obsidian
 
      # English word list
      hunspell
@@ -188,8 +194,15 @@
      python3
      go
 
-     # Hyprland dependencies
-     egl-wayland # Nvidia GPU compatibility component
+     hyprland
+     # # Hyprland dependencies
+     # egl-wayland # Nvidia GPU compatibility component
+     # hyprland-protocols
+     # hyprlang
+     # hyprutils
+     # hyprwayland-scanner
+     # libdrm
+     # sdbus-cpp
 
   ];
 
@@ -201,7 +214,7 @@
     keyboards = { 
       "logi".config = ''
 (defsrc 
-  caps ralt tab 
+  caps tab 
 )
 
 (defalias 
@@ -210,7 +223,7 @@
 )
 
 (deflayer default 
-  @cec lsft @stab
+  @cec @stab
 )
       '';
       };
@@ -259,5 +272,12 @@
   # ### Hyprland stuff ###
   # Enable polkit for Hyprland
   security.polkit.enable = true; # Omarun!
+
+  environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      LIBVA_DRIVER_NAME = "nvidia";
+      GBM_BACKEND = "nvidia-drm";
+      _GLXVENDOR_LIBRARY_NAME = "nvidia";
+    };
 
 }
