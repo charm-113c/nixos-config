@@ -168,6 +168,8 @@
      tmux
      # cbonsai because yes
      cbonsai
+     zip
+     unzip
      
      # Alacritty
      alacritty
@@ -193,6 +195,9 @@
      gcc
      python3
      go
+     # Guess I'll need these too
+     nodePackages_latest.npm
+     nodejs_22
 
      hyprland
      # # Hyprland dependencies
@@ -203,6 +208,7 @@
      # hyprwayland-scanner
      # libdrm
      # sdbus-cpp
+
 
   ];
 
