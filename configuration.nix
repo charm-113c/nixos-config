@@ -215,8 +215,8 @@
   # Amane Kanata!
   services.kanata = {
     enable = true;
-    # Map caps to esc/lctl and right alt to left shift
-    # Hold tab to make it into a lshift (more convenient in some cases)
+    # Map caps to esc/lsft 
+    # Hold tab to make it into a lctrl (more convenient in some cases)
     keyboards = { 
       "logi".config = ''
 (defsrc 
@@ -224,8 +224,8 @@
 )
 
 (defalias 
-  cec (tap-hold 200 200 esc lctl)
-  stab (tap-hold 100 100 tab lsft)
+  cec (tap-hold 100 100 esc lsft)
+  stab (tap-hold 200 200 tab lctl)
 )
 
 (deflayer default 
