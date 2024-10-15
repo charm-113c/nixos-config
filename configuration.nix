@@ -128,6 +128,7 @@
 
     hyprland = {
       enable = true;
+      package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     };
   };
   
@@ -208,6 +209,7 @@
      # hyprwayland-scanner
      # libdrm
      # sdbus-cpp
+     waybar
 
 
   ];
@@ -278,12 +280,5 @@
   # ### Hyprland stuff ###
   # Enable polkit for Hyprland
   security.polkit.enable = true; # Omarun!
-
-  environment.sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      LIBVA_DRIVER_NAME = "nvidia";
-      GBM_BACKEND = "nvidia-drm";
-      _GLXVENDOR_LIBRARY_NAME = "nvidia";
-    };
 
 }
