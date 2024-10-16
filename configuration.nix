@@ -226,7 +226,7 @@
 )
 
 (defalias 
-  cec (tap-hold 100 100 esc lsft)
+  cec (tap-hold 150 150 esc lsft)
   stab (tap-hold 200 200 tab lctl)
 )
 
