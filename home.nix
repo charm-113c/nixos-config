@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ./hyprland.nix
+    ./hypr/hyprland.nix
+    ./hypr/waybar.nix
   ];
 
   # Home Manager needs a bit of information about you and the
