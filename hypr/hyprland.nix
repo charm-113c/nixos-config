@@ -1,72 +1,6 @@
-{ config, lib, inputs, ...}:
+{ config, pkgs, lib, inputs, ...}:
 {
-  programs.waybar = {
-    enable = true;
-    settings = {
-        mainBar = {
-            layer = "top";
-            position = "top";
-            height = 30;
-
-            "modules-left" = [
-              "sway/workspaces"
-              "sway/mode"
-            ];
-
-            "module-center" = [ "sway/window" ];
-
-            "module-right" = [
-              "idle_inhibitor"
-              "cpu"
-              "memory"
-              "battery"
-              "pulseaudio"
-              "clock"
-              "tray"
-            ];
-
-            "sway/window" = {
-                "format" = "{title}";
-              };
-
-            "idle_inhibitor" = {
-                "format" = "{icon}";
-                "format-icons" = {
-                    "activated" = "\uf06e";
-                    "deactivated" = "\uf070";
-                  };
-              };
-
-            "cpu" = {
-                "interval" = 10;
-                "format" = "CPU: {usage}%";
-              };
-
-            "memory" = {
-                "interval" = 30;
-                "format" = "RAM: {used:0.1f}GiB/{total:0.1f}GiB ({percentage}%) SWAP: {swapUsed:0.1f}GiB/{swapTotal:0.1f}GiB ({swapPercentage}%)";
-              };
-            
-            "pulseaudio" = {
-                "format" = "{icon} {volume}%";
-                "format-icons" = {
-                    "default" = ["\uf026" "\uf027" "\uf028" ];
-                  };
-                "on-click" = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
-                "on-click-right" = "pavucontrol";
-                "format-muted" = "\uf00d {volume}%";
-              };
-
-            "tray" = {
-                "icon-size" = 20;
-                "spacing" = 10;
-              };
-
-          };
-      };
-    };
-
-  wayland.windowManager.hyprland = {
+    wayland.windowManager.hyprland = {
       enable = true;
 
       # plugins = [
@@ -85,8 +19,11 @@
             "NIXOS_OZONE_WL, 1"
           ];
 
-          "exec-once" = "waybar";
-
+          exec-once = [
+            # "${pkgs.hyprpanel}/bin/hyprpanel"
+            "hyprpanel"
+          ];
+          
           # Manually "extend" monitors instead of 
           # each haing its own workspace
           monitor = [

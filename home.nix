@@ -3,7 +3,7 @@
 {
   imports = [
     ./hypr/hyprland.nix
-    ./hypr/waybar.nix
+    # ./hypr/waybar.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -28,6 +28,26 @@
     timer
     # kitty
     btop
+    sway
+
+    hyprpanel
+    # Hyprpanel dependencies
+    pipewire
+    libgtop
+    bluez
+    bluez-tools # actually need utils but maybe this will work
+    grimblast
+    gpu-screen-recorder
+    hyprpicker
+    networkmanager
+    matugen
+    wl-clipboard
+    swww
+    dart-sass
+    brightnessctl
+    gnome.gnome-bluetooth # we'd need the 3.0, hopefully this works
+    # optional
+    python312Packages.gpustat
   ];
 
   programs.tmux = {
