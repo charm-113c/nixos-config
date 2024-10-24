@@ -1,5 +1,8 @@
 { config, pkgs, lib, inputs, ...}:
 {
+    # programs.waybar = {
+    #     enable = true;
+    #   };
     wayland.windowManager.hyprland = {
       enable = true;
 
@@ -20,8 +23,8 @@
           ];
 
           exec-once = [
-            # "${pkgs.hyprpanel}/bin/hyprpanel"
-            "hyprpanel"
+            "waybar"
+            "walker --gapplication-service"
           ];
           
           # Manually "extend" monitors instead of 
@@ -93,8 +96,9 @@
 
           bind = [
             "Super, W, exec, firefox"
-            "Super, F, exec, focuswriter"
+            "Super, F, exec, nautilus"
             "Super, Q, exec, alacritty"
+            "Super, K, exec, walker"
             "Super, BackSpace, killactive"
             "Super, F11, fullscreen"
 

@@ -13,10 +13,11 @@
             url = "github:hyprwm/hyprland-plugins";
             inputs.hyprland.follows = "hyprland";
           };
-        hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+
+        walker.url = "github:abenz1267/walker";
     };
 
-    outputs = { self, nixpkgs, home-manager, hyprland, hyprpanel, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, hyprland, walker, ... }@inputs:
       let
         lib = nixpkgs.lib;
       in {
@@ -36,7 +37,6 @@
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
                         home-manager.users.charm = import ./home.nix;
-                        nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
                       }
                   ];
                 };

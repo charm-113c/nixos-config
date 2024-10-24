@@ -70,6 +70,7 @@
 
     # Enable Nvidia drivers
     videoDrivers = [ "nvidia" ];
+    # Let's disable it to see if we get the opensource Nouveau drivers instead
   };
 
   # GPU pkgs version is > 560 so we need 
