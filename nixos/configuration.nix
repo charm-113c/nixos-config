@@ -21,7 +21,7 @@
       efiSupport = true;
       device = "nodev";
       useOSProber = true;
-      configurationLimit = 10;
+      configurationLimit = 30;
     };
     timeout = 10;
   };
@@ -61,6 +61,8 @@
     # Use GNOME
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+
+    displayManager.gdm.wayland= true;
 
     # Configure keyboard
     xkb = {

@@ -3,9 +3,8 @@
 {
   imports = [
     ./hypr/hyprland.nix
-    ./hypr/walker.nix
+    # ./hypr/walker.nix
     ./hypr/waybar.nix
-    inputs.walker.homeManagerModules.default
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -34,7 +33,14 @@
 
     pipewire
     dunst
- ];
+
+    wl-clipboard
+    brightnessctl
+
+    xwaylandvideobridge
+    wireplumber
+  ];
+  # home.packages = [inputs.walker.packages.${system}.default];
 
   programs.tmux = {
       enable = true;
@@ -66,10 +72,21 @@
           window = {
             opacity = 0.8;
             startup_mode = "Maximized";
-            title = "You write your own story.";
+            title = "You Write Your Own Story";
           };
+          keyboard = {
+              bindings = [
+                { 
+                  key = "PageDown"; 
+                  action = "ScrollLineDown";
+                  }
+                { 
+                  key = "PageUp"; 
+                  action = "ScrollLineUp";
+                  }
+              ];
+            };
         };
     };
 
-  # programs.enable.kitty = true;
 }

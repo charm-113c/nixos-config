@@ -97,7 +97,7 @@
           bind = [
             "Super, W, exec, firefox"
             "Super, F, exec, nautilus"
-            "Super, Q, exec, alacritty"
+            "Super, Q, exec, alacritty -e tmux"
             "Super, K, exec, walker"
             "Super, BackSpace, killactive"
             "Super, F11, fullscreen"
@@ -115,8 +115,8 @@
             "Super, mouse_down, workspace, e-1"
             "Super, mouse_up, workspace, e+1"
 
-            "Control+Super, right, workspace, +1"
-            "Control+Super, left, workspace, -1"
+            "Super+Control, H, workspace, e+1"
+            "Super+Control, L, workspace, e-1"
 
             "Super+Shift, H, movewindow, l"
             "Super+Shift, L, movewindow, r"
@@ -132,6 +132,11 @@
           bindel = [
             ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
             ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+            ", F4, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+            ", F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+
+            ", F7, exec, brightnessctl set 10%-"
+            ", F8, exec, brightnessctl set +10%"
           ];
 
           bindl = [
