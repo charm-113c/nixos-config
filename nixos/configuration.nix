@@ -212,7 +212,6 @@
      # sdbus-cpp
      waybar
 
-
   ];
 
   # Amane Kanata!

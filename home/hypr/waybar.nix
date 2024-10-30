@@ -12,9 +12,9 @@
               "hyprland/workspaces"
             ];
 
-            "module-center" = [ "hyprland/window" ];
+            "modules-center" = [ "hyprland/window" ];
 
-            "module-right" = [
+            "modules-right" = [
               "idle_inhibitor"
               "cpu"
               "memory"

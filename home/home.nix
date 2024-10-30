@@ -34,7 +34,7 @@
     pipewire
     dunst
 
-    brigthnessctl
+    brightnessctl
    ];
 
   programs.tmux = {
