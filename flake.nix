@@ -17,7 +17,7 @@
         walker.url = "github:abenz1267/walker";
     };
 
-    outputs = { self, nixpkgs, home-manager, hyprland, walker, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, ... }@inputs:
       let
         lib = nixpkgs.lib;
       in {
@@ -31,12 +31,12 @@
                   specialArgs = { inherit inputs; };
                   
                   modules = [ 
-                    ./configuration.nix
+                    ./nixos/configuration.nix
                     # hyprland.nixosModules.default
                     home-manager.nixosModules.home-manager {
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
-                        home-manager.users.charm = import ./home.nix;
+                        home-manager.users.charm = import ./home/home.nix;
                       }
                   ];
                 };

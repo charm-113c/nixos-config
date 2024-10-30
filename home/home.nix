@@ -3,9 +3,8 @@
 {
   imports = [
     ./hypr/hyprland.nix
-    ./hypr/walker.nix
+    # ./hypr/walker.nix
     ./hypr/waybar.nix
-    inputs.walker.homeManagerModules.default
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -34,7 +33,9 @@
 
     pipewire
     dunst
- ];
+
+    brigthnessctl
+   ];
 
   programs.tmux = {
       enable = true;
@@ -66,10 +67,9 @@
           window = {
             opacity = 0.8;
             startup_mode = "Maximized";
-            title = "You write your own story.";
+            title = "You Write Your Own Story";
           };
         };
     };
 
-  # programs.enable.kitty = true;
 }

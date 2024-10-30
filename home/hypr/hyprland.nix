@@ -1,8 +1,5 @@
 { config, pkgs, lib, inputs, ...}:
 {
-    # programs.waybar = {
-    #     enable = true;
-    #   };
     wayland.windowManager.hyprland = {
       enable = true;
 
@@ -24,9 +21,9 @@
 
           exec-once = [
             "waybar"
-            "walker --gapplication-service"
+            # "walker --gapplication-service"
           ];
-          
+
           # Manually "extend" monitors instead of 
           # each haing its own workspace
           monitor = [
@@ -47,7 +44,6 @@
               "7, monitor:HDMI-A-1"
               "8, monitor:HDMI-A-1"
               "9, monitor:HDMI-A-1"
-
           ];
 
           cursor = { 
@@ -97,8 +93,8 @@
           bind = [
             "Super, W, exec, firefox"
             "Super, F, exec, nautilus"
-            "Super, Q, exec, alacritty"
-            "Super, K, exec, walker"
+            "Super, Q, exec, alacritty -e tmux"
+            # "Super, K, exec, walker"
             "Super, BackSpace, killactive"
             "Super, F11, fullscreen"
 
@@ -132,6 +128,11 @@
           bindel = [
             ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
             ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+            ", F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+            ", F4, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+
+            ", F7, exec, brightnessctl set 5%-"
+            ", F8, exec, brightnessctl set +5%"
           ];
 
           bindl = [
