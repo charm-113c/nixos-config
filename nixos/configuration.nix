@@ -62,8 +62,6 @@
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
 
-    displayManager.gdm.wayland= true;
-
     # Configure keyboard
     xkb = {
       layout = "it";
@@ -214,7 +212,7 @@
      # sdbus-cpp
      waybar
 
-
+     xdg-desktop-portal-gnome
   ];
 
   # Amane Kanata!

@@ -37,8 +37,8 @@
     wl-clipboard
     brightnessctl
 
-    xwaylandvideobridge
-    wireplumber
+    # xwaylandvideobridge
+    # wireplumber
   ];
   # home.packages = [inputs.walker.packages.${system}.default];
 
@@ -89,4 +89,13 @@
         };
     };
 
+  xdg.portal = {
+      xdgOpenUsePortal = true;
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+      ];
+    };
 }
