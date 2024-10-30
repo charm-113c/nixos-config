@@ -77,11 +77,13 @@
           keyboard = {
               bindings = [
                 { 
-                  key = "PageDown"; 
+                  key = "Down";
+                  mods = "Shift";
                   action = "ScrollLineDown";
                   }
                 { 
-                  key = "PageUp"; 
+                  key = "Up";
+                  mods = "Shift";
                   action = "ScrollLineUp";
                   }
               ];
