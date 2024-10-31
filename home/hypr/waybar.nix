@@ -27,14 +27,26 @@
             "hyprland/window" = {
                 "separate-outputs"= true;
               };
+
+            "idle_inhibitor"= {
+              "format"= "{icon}";
+              "format-icons"= {
+                "activated"= "";
+                "deactivated"= "";
+              };
+              "timeout"= 30;
+            };
+
             "cpu" = {
                 "interval" = 1;
                 "format" = "󰍛 {usage}%";
               };
+
             "memory" = {
                 "interval" = 3;
                 "format" = "RAM {percentage}% | {used:0.1f} GiB ";
               };
+
             "pulseaudio" = {
                 "scroll-step" = 1;
                 "format" = "{icon} {volume}%";
@@ -45,6 +57,7 @@
                 # "on-click" = "pamixer -t";
                 # "tooltip" = false;
               };
+              
             "battery"= {
               "states"= {
                 "good"= 95;
@@ -60,6 +73,7 @@
                   " "
                 ];
               };
+
             "tray" = {
                 "icon-size" = 20;
                 "spacing" = 10;
