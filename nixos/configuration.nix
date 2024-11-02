@@ -118,7 +118,7 @@
         ll = "ls -l";
         edit = "~/.dotfiles/ && nvim";
         update = "sudo nixos-rebuild switch";
-        sysupdate = "sudo nix flake update | sudo nixos-rebuild switch";
+        sysupdate = "sudo nix flake update && sudo nixos-rebuild switch";
       };
 
       # history.size = 10000;
