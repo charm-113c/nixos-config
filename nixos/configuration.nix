@@ -202,14 +202,7 @@
      nodejs_22
 
      hyprland
-     # # Hyprland dependencies
-     # egl-wayland # Nvidia GPU compatibility component
-     # hyprland-protocols
-     # hyprlang
-     # hyprutils
-     # hyprwayland-scanner
-     # libdrm
-     # sdbus-cpp
+     # Hyprland dependencies
      waybar
 
   ];

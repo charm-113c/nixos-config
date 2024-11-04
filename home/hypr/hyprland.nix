@@ -94,7 +94,7 @@
             "Super, W, exec, firefox"
             "Super, F, exec, nautilus"
             "Super, Q, exec, alacritty -e tmux"
-            # "Super, K, exec, walker"
+            "Super, K, exec, anyrun"
             "Super, BackSpace, killactive"
             "Super, F11, fullscreen"
 
