@@ -3,10 +3,8 @@
     wayland.windowManager.hyprland = {
       enable = true;
 
-      # plugins = [
-      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
-      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      # plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
+      #   hyprpaper
       # ];
 
       settings = {
@@ -21,7 +19,7 @@
 
           exec-once = [
             "waybar"
-            # "walker --gapplication-service"
+            "hyprpaper"
           ];
 
           # Manually "extend" monitors instead of 
@@ -92,9 +90,9 @@
 
           bind = [
             "Super, W, exec, firefox"
-            "Super, F, exec, nautilus"
+            "Super, F, exec, thunar"
             "Super, Q, exec, alacritty -e tmux"
-            "Super, K, exec, anyrun"
+            "Super, A, exec, anyrun"
             "Super, BackSpace, killactive"
             "Super, F11, fullscreen"
 

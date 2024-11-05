@@ -5,6 +5,7 @@
     ./hypr/hyprland.nix
     ./hypr/anyrun.nix
     ./hypr/waybar.nix
+    ./hypr/hyprpaper.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -35,6 +36,13 @@
     dunst
 
     brightnessctl
+
+    # File system viewer
+    xfce.thunar
+    hyprpaper
+    # Image viewer
+    xfce.ristretto
+    xfce.tumbler # and its accompanying thumbnailling daemon
    ];
 
   programs.tmux = {
