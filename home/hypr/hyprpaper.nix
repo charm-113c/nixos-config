@@ -9,10 +9,11 @@
 
             preload = [ 
               "/home/charm/Downloads/1070343.png"
+              "/home/charm/Downloads/742762.png"
             ];
 
             wallpaper = [
-              ", /home/charm/Downloads/1070343.png"
+              ", /home/charm/Downloads/742762.png"
             ];
           };
       };

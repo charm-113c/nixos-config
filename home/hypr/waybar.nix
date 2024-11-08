@@ -16,11 +16,17 @@
 
             "modules-right" = [
               "idle_inhibitor"
+              "custom/separator"
               "cpu"
+              "custom/separator"
               "memory"
+              "custom/separator"
               "battery"
+              "custom/separator"
               "pulseaudio"
+              "custom/separator"
               "clock"
+              "custom/separator"
               "tray"
             ];
 
@@ -28,11 +34,15 @@
                 "separate-outputs"= true;
               };
 
+            "custom/separator" = {
+                "format"= "♾";
+              };
+
             "idle_inhibitor"= {
               "format"= "{icon}";
               "format-icons"= {
-                "activated"= "";
-                "deactivated"= "";
+                "activated"= " ";
+                "deactivated"= " ";
               };
               "timeout"= 30;
             };
@@ -44,7 +54,7 @@
 
             "memory" = {
                 "interval" = 3;
-                "format" = "RAM {percentage}% | {used:0.1f} GiB ";
+                "format" = "RAM {percentage}% | {used:0.1f} GiB";
               };
 
             "pulseaudio" = {
@@ -60,9 +70,9 @@
               
             "battery"= {
               "states"= {
-                "good"= 95;
+                "good"= 70;
                 "warning"= 30;
-                "critical"= 15;
+                "critical"= 20;
               };
               "format"= "{icon} {capacity}%";
               "format-icons"= [
@@ -87,60 +97,21 @@
         font-size: 13px;
     }
 
-#waybar {
-        background-color: #333333;
-        color: #ffffff;
+    window#waybar {
+        background-color: rgba(0,0,0,0);
+        color: #27e6ff;
     }
+
+    .modules-left, .modules-center, .modules-right {
+        border: 1px solid #27e6ff;
+        border-radius: 15px;
+      }
 
     button {
         box-shadow: inset 0 -3px transparent;
-        border: none;
-        border-radius: 0;
+        border-radius: 15px;
         padding: 0 5px;
-    }
-
-#workspaces button {
-        background-color: #5f676a;
-        color: #ffffff;
-    }
-
-#workspaces button:hover {
-        background: rgba(0,0,0,0.2);
-    }
-
-#workspaces button.focused {
-        background-color: #285577;
-    }
-
-#workspaces button.urgent {
-        background-color: #900000;
-    }
-
-#workspaces button.active {
-        background-color: #285577;
-    }
-
-#clock,
-#battery,
-#cpu,
-#memory,
-#pulseaudio,
-#tray,
-#mode,
-#idle_inhibitor,
-#window,
-#workspaces {
-        margin: 0 5px;
-    }
-
-
-    .modules-left > widget:first-child > #workspaces {
-        margin-left: 0;
-    }
-
-
-    .modules-right > widget:last-child > #workspaces {
-        margin-right: 0;
+        color: rgb(39, 230, 255);
     }
 
     @keyframes blink {
@@ -149,38 +120,56 @@
             color: #000000;
         }
     }
+    
+    #custom-separator {
+      padding: 0 5 0 5px;
+    }
 
-#battery.critical:not(.charging) {
-        background-color: #f53c3c;
-        color: #ffffff;
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
+    #workspaces button.urgent {
+      background-color: rgba(230, 230, 255, 0.2);
+    }
+
+    #workspaces button.active {
+      background-color: rgba(39, 230, 255, 0.2);
+    }
+
+    #battery {
+      border-radius: 15px;
+    }
+
+    /* #battery.charging {
+      background-color: rgba(39, 230, 255, 0.2);
+    } */
+
+    #battery.critical:not(.charging) {
+      background-color: #f53c3c;
+      color: #ffffff;
+      animation-name: blink;
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
     }
 
     label:focus {
-        background-color: #000000;
+      background-color: #000000;
     }
 
-#tray > .passive {
-        -gtk-icon-effect: dim;
+    #tray > .passive {
+      -gtk-icon-effect: dim;
     }
 
-#tray > .needs-attention {
-        -gtk-icon-effect: highlight;
-        background-color: #eb4d4b;
+    #tray > .needs-attention {
+      -gtk-icon-effect: highlight;
+      background-color: #eb4d4b;
     }
 
-#idle_inhibitor {
-        font-size: 15px;
-        background-color: #333333;
-        padding: 5px;
+    #idle_inhibitor {
+      border-radius: 15px;
     }
 
-#idle_inhibitor.activated {
-        background-color: #285577;
+    #idle_inhibitor.activated {
+      background-color: rgba(39, 230, 255, 0.2);
     }
     '';
 

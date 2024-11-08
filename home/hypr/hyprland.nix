@@ -1,4 +1,8 @@
 { config, pkgs, lib, inputs, ...}:
+let
+  active_col = "rgb(27e6ff)";
+  inactive_col = "rgba(27e6ff4d)";
+in 
 {
     wayland.windowManager.hyprland = {
       enable = true;
@@ -22,8 +26,6 @@
             "hyprpaper"
           ];
 
-          # Manually "extend" monitors instead of 
-          # each haing its own workspace
           monitor = [
               "eDP-1, 1920x1080@60, 0x0, 1"
               "HDMI-A-1, 1920x1080@60, 1920x0, 1"
@@ -31,20 +33,20 @@
 
           # Bind workspaces to monitors
           workspace = [
-              "0, monitor:eDP-1"
-              "1, monitor:eDP-1"
-              "2, monitor:eDP-1"
-              "3, monitor:eDP-1"
-              "4, monitor:eDP-1"
+              "1, monitor:eDP-1, persistent:true"
+              "2, monitor:eDP-1, persistent:true"
+              "3, monitor:eDP-1, persistent:true"
+              "4, monitor:eDP-1, persistent:true"
+              "5, monitor:eDP-1, persistent:true"
 
-              "5, monitor:HDMI-A-1"
-              "6, monitor:HDMI-A-1"
-              "7, monitor:HDMI-A-1"
-              "8, monitor:HDMI-A-1"
-              "9, monitor:HDMI-A-1"
+              "6, monitor:HDMI-A-1, persistent:true"
+              "7, monitor:HDMI-A-1, persistent:true"
+              "8, monitor:HDMI-A-1, persistent:true"
+              "9, monitor:HDMI-A-1, persistent:true"
+              "0, monitor:HDMI-A-1, persistent:true"
           ];
 
-          cursor = { 
+          cursor = {
               no_hardware_cursors = true;
             };
 
@@ -52,8 +54,8 @@
               border_size = 1;
               gaps_in = 5;
               gaps_out = 5;
-              "col.active_border" = "rgb(27e6ff)";
-              "col.inactive_border" = "rgba(27e6ff4d)";
+              "col.active_border" = active_col;
+              "col.inactive_border" = inactive_col;
               resize_on_border = true;
             };
 
