@@ -111,8 +111,8 @@ in
             "Super, mouse_down, workspace, e-1"
             "Super, mouse_up, workspace, e+1"
 
-            "Control+Super, right, workspace, +1"
-            "Control+Super, left, workspace, -1"
+            "Control+Super, L, workspace, +1"
+            "Control+Super, H, workspace, -1"
 
             "Super+Shift, H, movewindow, l"
             "Super+Shift, L, movewindow, r"
