@@ -98,22 +98,21 @@
     }
 
     window#waybar {
-      background-color: rgba(0,0,0,0.2);
-      color: rgb(241, 221, 30);
+      background-color: rgba(0,0,0,0);
+      color: rgba(241, 221, 30, 0.8);
       padding: 5px;
     }
 
     .modules-left, .modules-center, .modules-right {
-      border: 1px solid #27e6ff;
+      border: 1px solid rgba(39, 230, 255, 0.8);
       border-radius: 15px;
       padding: 0 5 0 5px;
     }
 
     button {
-      box-shadow: inset 0 -3px transparent;
       border-radius: 15px;
       padding: 0 5px;
-      color: rgb(241, 221, 30);
+      color: rgba(241, 221, 30, 0.8);
     }
 
     @keyframes blink {
@@ -134,6 +133,7 @@
 
     #workspaces button.active {
       background-color: rgba(39, 230, 255, 0.2);
+      color: rgb(39, 230, 255);
     }
 
     #battery {
@@ -143,12 +143,12 @@
 
     #battery.charging {
       background-color: rgba(39, 230, 255, 0.2);
-      color: rgb(39, 230, 255);
+      color: rgba(39, 230, 255, 0.8);
     }
 
     #battery.critical:not(.charging) {
-      background-color: #f53c3c;
-      color: #ffffff;
+      background-color: rgba(230, 130, 155, 0.2);
+      color: rgb(230, 130, 155);
       animation-name: blink;
       animation-duration: 0.5s;
       animation-timing-function: linear;

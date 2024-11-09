@@ -33,17 +33,17 @@ in
 
           # Bind workspaces to monitors
           workspace = [
+              "0, monitor:eDP-1, persistent:true"
               "1, monitor:eDP-1, persistent:true"
               "2, monitor:eDP-1, persistent:true"
               "3, monitor:eDP-1, persistent:true"
               "4, monitor:eDP-1, persistent:true"
-              "5, monitor:eDP-1, persistent:true"
 
+              "5, monitor:HDMI-A-1, persistent:true"
               "6, monitor:HDMI-A-1, persistent:true"
               "7, monitor:HDMI-A-1, persistent:true"
               "8, monitor:HDMI-A-1, persistent:true"
               "9, monitor:HDMI-A-1, persistent:true"
-              "0, monitor:HDMI-A-1, persistent:true"
           ];
 
           cursor = {
