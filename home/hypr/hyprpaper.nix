@@ -4,16 +4,16 @@
         enable = true;
         settings = {
             ipc = "on";
-            splash = false;
+            splash = true;
             splash_offset = 2.0;
 
             preload = [ 
-              "/home/charm/Downloads/1070343.png"
-              "/home/charm/Downloads/742762.png"
+              "./Wallpapers/1070343.png"
+              "./Wallpapers/742762.png"
             ];
 
             wallpaper = [
-              ", /home/charm/Downloads/742762.png"
+              ", ./Wallpapers/742762.png"
             ];
           };
       };

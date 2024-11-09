@@ -57,6 +57,7 @@ in
               "col.active_border" = active_col;
               "col.inactive_border" = inactive_col;
               resize_on_border = true;
+              extend_border_grab_area = 30;
             };
 
           decoration = {
@@ -70,6 +71,7 @@ in
 
               blur = {
                   enabled = true;
+                  size = 4;
                   new_optimizations = true;
                   xray = true;
                 };
@@ -122,6 +124,19 @@ in
             "Super, L, movefocus, r"
             "Super, K, movefocus, u"
             "Super, J, movefocus, d"
+
+            "Super+Shift, 0, movetoworkspace, 0"
+            "Super+Shift, 1, movetoworkspace, 1"
+            "Super+Shift, 2, movetoworkspace, 2"
+            "Super+Shift, 3, movetoworkspace, 3"
+            "Super+Shift, 4, movetoworkspace, 4"
+            "Super+Shift, 5, movetoworkspace, 5"
+            "Super+Shift, 6, movetoworkspace, 6"
+            "Super+Shift, 7, movetoworkspace, 7"
+            "Super+Shift, 8, movetoworkspace, 8"
+            "Super+Shift, 9, movetoworkspace, 9"
+
+            "Super, M, togglefloating"
 
           ];
 

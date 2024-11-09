@@ -35,7 +35,7 @@
               };
 
             "custom/separator" = {
-                "format"= " ";
+                "format"= "♦";
               };
 
             "idle_inhibitor"= {
@@ -98,8 +98,8 @@
     }
 
     window#waybar {
-      background-color: rgba(0,0,0,0);
-      color: #27e6ff;
+      background-color: rgba(0,0,0,0.2);
+      color: rgb(241, 221, 30);
       padding: 5px;
     }
 
@@ -113,7 +113,7 @@
       box-shadow: inset 0 -3px transparent;
       border-radius: 15px;
       padding: 0 5px;
-      color: rgb(39, 230, 255);
+      color: rgb(241, 221, 30);
     }
 
     @keyframes blink {
@@ -125,10 +125,11 @@
     
     #custom-separator {
       padding: 0 5 0 5px;
+      color: rgba(39, 230, 255, 0.5);
     }
 
     #workspaces button.urgent {
-      background-color: rgba(230, 230, 255, 0.2);
+      background-color: rgba(230, 130, 155, 0.2);
     }
 
     #workspaces button.active {
@@ -142,6 +143,7 @@
 
     #battery.charging {
       background-color: rgba(39, 230, 255, 0.2);
+      color: rgb(39, 230, 255);
     }
 
     #battery.critical:not(.charging) {
