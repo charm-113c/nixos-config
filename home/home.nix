@@ -6,6 +6,8 @@
     ./hypr/anyrun.nix
     ./hypr/waybar.nix
     ./hypr/hyprpaper.nix
+    ./hypr/hypridle.nix
+    ./hypr/hyprlock.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -43,6 +45,9 @@
     # Image viewer
     xfce.ristretto
     xfce.tumbler # and its accompanying thumbnailling daemon
+
+    hypridle
+    hyprlock
    ];
 
   programs.tmux = {

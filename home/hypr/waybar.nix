@@ -176,6 +176,8 @@
 
     #idle_inhibitor.activated {
       background-color: rgba(39, 230, 255, 0.2);
+      color: rgb(39, 230, 255);
+      padding-right: 4px;
     }
     '';
 
