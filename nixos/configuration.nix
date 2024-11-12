@@ -107,7 +107,6 @@
     # Install firefox.
     firefox.enable = true;
 
-    # zshell
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -120,6 +119,10 @@
         update = "sudo nixos-rebuild switch";
         sysupdate = "sudo nix flake update && sudo nixos-rebuild switch";
       };
+
+      # I'm also making use of Powerlevel10k
+      # But it doesn't have a dedicated package
+      # So I went with manual installation as on its Github repits Github repo
 
       # history.size = 10000;
       # history.ignoreAllDups = true;
@@ -274,4 +277,7 @@
   # Enable polkit for Hyprland
   security.polkit.enable = true; # Omarun!
 
+  environment.variables = rec {
+      EDITOR = "nvim";
+    };
 }

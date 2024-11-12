@@ -8,8 +8,9 @@
     enable = true;
     config = {
       x = { fraction = 0.5; };
-      y = { fraction = 0.3; };
-      width = { fraction = 0.3; };
+      y = { fraction = 0.5; };
+      width = { fraction = 0.5; };
+      height = { fraction = 0.5; };
       hideIcons = false;
       ignoreExclusiveZones = false;
       layer = "overlay";
@@ -33,11 +34,18 @@
 
     # Inline comments are supported for language injection into
     # multi-line strings with Treesitter! (Depends on your editor)
-    # extraCss = /*css */ ''
-    #   .some_class {
-    #     background: red;
-    #   }
-    # '';
+    extraCss = /*css */ ''
+      #window {
+        background-color: rgba(0,0,0,0.5);
+        border: 2px;
+        border-color: rgba(39, 230, 255, 0.8);
+        }
+      #entry {
+        border: 2px;
+        border-color: rgba(39, 230, 255, 0.8);
+        color: rgb(39, 230, 255);
+      }
+    '';
     #
     # extraConfigFiles."some-plugin.ron".text = ''
     #   Config(

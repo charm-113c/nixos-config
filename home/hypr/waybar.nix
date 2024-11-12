@@ -1,4 +1,16 @@
 { config, lib, inputs, ...}:
+let
+  # primary_col = "rgb(39, 230, 255)";
+  primary_col = "rgb(53, 231, 244)";
+  primary_shade = "rgba(53, 231, 244, 0.2)";
+  primary_shade_med = "rgba(53, 231, 244, 0.5)";
+  primary_shade_bold = "rgba(53, 231, 244, 0.8)";
+  # second_col = "rgb(241, 221, 30)";
+  second_col = "rgb(255, 47, 208)";
+  second_shade = "rgba(255, 47, 208, 0.2)";
+  second_shade_med = "rgba(255, 47, 208, 0.5)";
+  second_shade_bold = "rgba(255, 47, 208, 0.8)";
+in
 {
   programs.waybar = {
     enable = true;
@@ -99,20 +111,22 @@
 
     window#waybar {
       background-color: rgba(0,0,0,0);
-      color: rgba(241, 221, 30, 0.8);
+      /* color: rgba(241, 221, 30, 0.8); */
+      color: ${second_shade_bold};
       padding: 5px;
     }
 
     .modules-left, .modules-center, .modules-right {
-      border: 1px solid rgba(39, 230, 255, 0.8);
+      border: 1px solid ${primary_shade_bold};
       border-radius: 15px;
       padding: 0 5 0 5px;
+      background-color: rgba(0,0,0,0.5);
     }
 
     button {
       border-radius: 15px;
       padding: 0 5px;
-      color: rgba(241, 221, 30, 0.8);
+      color : ${second_shade_bold};
     }
 
     @keyframes blink {
@@ -124,7 +138,7 @@
     
     #custom-separator {
       padding: 0 5 0 5px;
-      color: rgba(39, 230, 255, 0.5);
+      color: ${primary_shade_med};
     }
 
     #workspaces button.urgent {
@@ -132,8 +146,8 @@
     }
 
     #workspaces button.active {
-      background-color: rgba(39, 230, 255, 0.2);
-      color: rgb(39, 230, 255);
+      background-color: ${primary_shade};
+      color: ${primary_shade_bold};
     }
 
     #battery {
@@ -142,8 +156,8 @@
     }
 
     #battery.charging {
-      background-color: rgba(39, 230, 255, 0.2);
-      color: rgba(39, 230, 255, 0.8);
+      background-color: ${primary_shade};
+      color: ${primary_shade_bold};
     }
 
     #battery.critical:not(.charging) {
@@ -175,8 +189,8 @@
     }
 
     #idle_inhibitor.activated {
-      background-color: rgba(39, 230, 255, 0.2);
-      color: rgb(39, 230, 255);
+      background-color: ${primary_shade};
+      color: ${primary_shade_bold};
       padding-right: 4px;
     }
     '';

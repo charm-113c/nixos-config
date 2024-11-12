@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       background = {
-          path = "~/.dotfiles/home/hypr/Wallpapers/742762.png";
+          path = "~/.dotfiles/home/hypr/Wallpapers/bioluminescence-5120x2880-15292.jpg";
           blur_passes = 1;
           blur_size = 4;
           grace = 5; # period in s after lock where mouse movement unlocks automatically

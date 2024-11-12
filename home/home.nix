@@ -41,13 +41,18 @@
 
     # File system viewer
     xfce.thunar
-    hyprpaper
+    superfile
     # Image viewer
     xfce.ristretto
     xfce.tumbler # and its accompanying thumbnailling daemon
 
+    hyprpaper
     hypridle
     hyprlock
+    hyprpicker
+
+    notes
+    gimp
    ];
 
   programs.tmux = {
