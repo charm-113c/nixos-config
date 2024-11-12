@@ -9,10 +9,10 @@
     config = {
       x = { fraction = 0.5; };
       y = { fraction = 0.5; };
-      width = { fraction = 0.5; };
-      height = { fraction = 0.5; };
+      width = { fraction = 0.3; };
+      height = { fraction = 0.3; };
       hideIcons = false;
-      ignoreExclusiveZones = false;
+      ignoreExclusiveZones = true;
       layer = "overlay";
       hidePluginInfo = false;
       closeOnClick = false;
@@ -39,11 +39,19 @@
         background-color: rgba(0,0,0,0.5);
         border: 2px;
         border-color: rgba(39, 230, 255, 0.8);
-        }
+      }
       #entry {
-        border: 2px;
+        background-color: rgba(0,0,0,0.8);
+        border: 1px;
         border-color: rgba(39, 230, 255, 0.8);
         color: rgb(39, 230, 255);
+      }
+      #main {
+        background-color: rgba(0,0,0,0.5);
+      }
+      match {
+        border: 2px;
+        border-color: rgba(39, 230, 255, 0.8);
       }
     '';
     #
