@@ -1,4 +1,4 @@
-{ config, lib, inputs, ...}:
+{ config, lib, pkgs, inputs, ...}:
 let
   # primary_col = "rgb(39, 230, 255)";
   primary_col = "rgb(53, 231, 244)";
@@ -10,6 +10,33 @@ let
   second_shade = "rgba(255, 47, 208, 0.2)";
   second_shade_med = "rgba(255, 47, 208, 0.5)";
   second_shade_bold = "rgba(255, 47, 208, 0.8)";
+
+  # menuScript = pkgs.writeShellScriptBin "menu.sh" ''
+  #   options="Logout\nReboot\nShutdown\nLock\nSuspend"
+  #
+  #   chosen=$(echo -e "$options" | wofi --dmenu)
+  #
+  #   case $chosen in 
+  #     "Logout")
+  #       hyprctl dispatch exit
+  #       ;;
+  #     "Reboot")
+  #       reboot 
+  #       ;;
+  #     "Shutdown")
+  #       shutdown now
+  #       ;;
+  #     "Lock")
+  #       hyprlock
+  #       ;;
+  #     "Suspend")
+  #       systemctl suspend
+  #       ;;
+  #     *)
+  #       exit 1 
+  #       ;;
+  #   esac
+  # '';
 in
 {
   programs.waybar = {
@@ -21,10 +48,13 @@ in
             height = 30;
 
             "modules-left" = [
+              "custom/power_menu"
               "hyprland/workspaces"
             ];
 
-            "modules-center" = [ "hyprland/window" ];
+            "modules-center" = [ 
+              "hyprland/window"
+            ];
 
             "modules-right" = [
               "idle_inhibitor"
@@ -41,6 +71,11 @@ in
               "custom/separator"
               "tray"
             ];
+
+            "custom/power_menu" = {
+                "format" = " ";
+                "on-click" = "~/.dotfiles/home/scripts/pmenu.sh";
+              };
 
             "hyprland/window" = {
                 "separate-outputs"= true;
@@ -79,7 +114,7 @@ in
                 # "on-click" = "pamixer -t";
                 # "tooltip" = false;
               };
-              
+
             "battery"= {
               "states"= {
                 "good"= 70;
@@ -95,6 +130,10 @@ in
                   " "
                 ];
               };
+
+            "clock" = {
+              "tooltip-format" = "<tt><small>{calendar}</small></tt>";
+            };
 
             "tray" = {
                 "icon-size" = 20;
@@ -116,11 +155,11 @@ in
       padding: 5px;
     }
 
-    .modules-left, .modules-center, .modules-right {
+    #custom-power_menu, #workspaces, .modules-center, .modules-right {
       border: 1px solid ${primary_shade_bold};
       border-radius: 15px;
       padding: 0 5 0 5px;
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.7);
     }
 
     button {
@@ -135,7 +174,14 @@ in
         color: #000000;
       }
     }
-    
+
+    #custom-power_menu {
+      font-size: 19px;
+      padding: 0px 3px 0px 8px;
+      color: ${primary_col};
+      border-radius: 20px;
+    }
+
     #custom-separator {
       padding: 0 5 0 5px;
       color: ${primary_shade_med};

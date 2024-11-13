@@ -203,11 +203,12 @@
      # Guess I'll need these too
      nodePackages_latest.npm
      nodejs_22
+     gnumake
+     binutils
 
      hyprland
      # Hyprland dependencies
      waybar
-
   ];
 
   # Amane Kanata!

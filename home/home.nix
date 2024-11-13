@@ -8,6 +8,7 @@
     ./hypr/hyprpaper.nix
     ./hypr/hypridle.nix
     ./hypr/hyprlock.nix
+    ./hypr/wofi.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -34,10 +35,12 @@
     btop
     sway
 
+    # Desktop utility
     pipewire
     dunst
-
     brightnessctl
+    wofi
+    gsimplecal
 
     # File system viewer
     xfce.thunar
@@ -46,11 +49,13 @@
     xfce.ristretto
     xfce.tumbler # and its accompanying thumbnailling daemon
 
+    # Hypr stuff
     hyprpaper
     hypridle
     hyprlock
     hyprpicker
 
+    # Utility software
     notes
     gimp
    ];

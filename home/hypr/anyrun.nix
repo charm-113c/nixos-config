@@ -11,7 +11,7 @@
       y = { fraction = 0.5; };
       width = { fraction = 0.3; };
       height = { fraction = 0.3; };
-      hideIcons = false;
+      hideIcons = true;
       ignoreExclusiveZones = true;
       layer = "overlay";
       hidePluginInfo = false;
@@ -37,8 +37,6 @@
     extraCss = /*css */ ''
       #window {
         background-color: rgba(0,0,0,0.5);
-        border: 2px;
-        border-color: rgba(39, 230, 255, 0.8);
       }
       #entry {
         background-color: rgba(0,0,0,0.8);
@@ -48,10 +46,17 @@
       }
       #main {
         background-color: rgba(0,0,0,0.5);
+        color: rgb(39, 230, 255);
+        border-radius: 5px;
       }
-      match {
-        border: 2px;
-        border-color: rgba(39, 230, 255, 0.8);
+      #match {
+        color: rgb(39, 230, 255);
+        background-color: rgba(0,0,0,0.5);
+        border-radius: 5px;
+      }
+      #match-desc {
+        background-color: rgba(0,0,0,0.5);
+        border-radius: 5px;
       }
     '';
     #
