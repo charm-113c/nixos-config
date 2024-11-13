@@ -135,11 +135,6 @@ in
 
             "clock" = {
               "tooltip-format" = "<tt><small>{calendar}</small></tt>";
-              "calendar" = {
-                  "format" = {
-                      "today" = "<span color='#ff6699'><b><u>{}</u></b></span>";
-                    };
-                };
             };
 
             "tray" = {
@@ -165,13 +160,13 @@ in
     #custom-power_menu, #workspaces, .modules-center, .modules-right {
       border: 1px solid ${primary_shade_bold};
       border-radius: 15px;
-      padding: 0 5 0 5px;
+      padding:  0px 5px 0px 5px;
       background-color: rgba(0,0,0,0.7);
     }
 
     button {
       border-radius: 15px;
-      padding: 0 5px;
+      padding: 0px 5px;
       color : ${second_shade_bold};
     }
 
@@ -184,14 +179,14 @@ in
 
     #custom-power_menu {
       font-size: 19px;
-      padding: 0px 3px 0px 8px;
+      padding: 0px 1px 0px 6px;
       color: ${primary_col};
-      border-radius: 35px;
+      border-radius: 50px;
       margin-right: 5px;
     }
 
     #custom-separator {
-      padding: 0 5 0 5px;
+      padding:  0px 5px 0px 5px;
       color: ${primary_shade_med};
     }
 
@@ -204,9 +199,16 @@ in
       color: ${primary_shade_bold};
     }
 
+    #memory:hover, #cpu:hover {
+      background-color: ${primary_shade};
+      color: ${primary_shade_bold};
+      border-radius: 15px;
+      padding: 0px 5px 0px 5px;
+    }
+
     #battery {
       border-radius: 15px;
-      padding: 0 5 0 5px;
+      padding:  0px 5px 0px 5px;
     }
 
     #battery.charging {

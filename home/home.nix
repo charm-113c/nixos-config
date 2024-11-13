@@ -95,4 +95,10 @@
         };
     };
 
+  # programs.btop = {
+  # theme can't be changed from here for some reason,
+  # has to be done straight on its config File
+  # (also, copy the horizon theme from the btop github
+  # repo, it's very nice)
+
 }
