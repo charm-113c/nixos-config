@@ -1,21 +1,21 @@
-options="Logout\nReboot\nShutdown\nLock\nSuspend"
+options="󰍃 Logout\n󰜉 Reboot\n󰐥 Shutdown\n󰌾 Lock\n⏾ Suspend\n󰅖 Cancel"
 
 chosen=$(echo -e "$options" | wofi --dmenu)
 
 case $chosen in
-"Logout")
+"󰍃 Logout")
   hyprctl dispatch exit
   ;;
-"Reboot")
+"󰜉  Reboot")
   reboot
   ;;
-"Shutdown")
+"󰐥 Shutdown")
   shutdown now
   ;;
-"Lock")
+"󰌾 Lock")
   hyprlock
   ;;
-"Suspend")
+"⏾ Suspend")
   systemctl suspend
   ;;
 *)

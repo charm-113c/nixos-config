@@ -97,11 +97,13 @@ in
             "cpu" = {
                 "interval" = 1;
                 "format" = "󰍛 {usage}%";
+                "on-click" = "alacritty -e btop";
               };
 
             "memory" = {
                 "interval" = 3;
                 "format" = "RAM {percentage}% | {used:0.1f}GiB";
+                "on-click" = "alacritty -e btop";
               };
 
             "pulseaudio" = {
@@ -133,6 +135,11 @@ in
 
             "clock" = {
               "tooltip-format" = "<tt><small>{calendar}</small></tt>";
+              "calendar" = {
+                  "format" = {
+                      "today" = "<span color='#ff6699'><b><u>{}</u></b></span>";
+                    };
+                };
             };
 
             "tray" = {
@@ -179,7 +186,8 @@ in
       font-size: 19px;
       padding: 0px 3px 0px 8px;
       color: ${primary_col};
-      border-radius: 20px;
+      border-radius: 35px;
+      margin-right: 5px;
     }
 
     #custom-separator {
