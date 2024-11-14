@@ -9,6 +9,8 @@
     ./hypr/hypridle.nix
     ./hypr/hyprlock.nix
     ./hypr/wofi.nix
+
+    ./kitty.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -31,7 +33,7 @@
 
   home.packages = with pkgs; [
     timer
-    # kitty
+    kitty
     btop
     sway
 
@@ -41,6 +43,7 @@
     brightnessctl
     wofi
     gsimplecal
+    playerctl
 
     # File system viewer
     xfce.thunar
@@ -48,6 +51,7 @@
     # Image viewer
     xfce.ristretto
     xfce.tumbler # and its accompanying thumbnailling daemon
+    nwg-look
 
     # Hypr stuff
     hyprpaper
@@ -58,6 +62,8 @@
     # Utility software
     notes
     gimp
+    zip
+    unzip
    ];
 
   programs.tmux = {

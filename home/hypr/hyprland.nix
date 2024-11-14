@@ -33,17 +33,17 @@ in
 
           # Bind workspaces to monitors
           workspace = [
-              "0, monitor:eDP-1, persistent:true"
               "1, monitor:eDP-1, persistent:true"
               "2, monitor:eDP-1, persistent:true"
               "3, monitor:eDP-1, persistent:true"
               "4, monitor:eDP-1, persistent:true"
+              "5, monitor:eDP-1, persistent:true"
 
-              "5, monitor:HDMI-A-1, persistent:true"
               "6, monitor:HDMI-A-1, persistent:true"
               "7, monitor:HDMI-A-1, persistent:true"
               "8, monitor:HDMI-A-1, persistent:true"
               "9, monitor:HDMI-A-1, persistent:true"
+              "10, monitor:HDMI-A-1, persistent:true"
           ];
 
           cursor = {
@@ -95,7 +95,7 @@ in
           bind = [
             "Super, W, exec, firefox"
             "Super, F, exec, thunar"
-            "Super, Q, exec, alacritty -e tmux"
+            "Super, Q, exec, kitty -e tmux"
             "Super, A, exec, anyrun"
             "Super, BackSpace, killactive"
             "Super, F11, fullscreen"
@@ -109,7 +109,7 @@ in
             "Super, 7, workspace, 7"
             "Super, 8, workspace, 8"
             "Super, 9, workspace, 9"
-            "Super, 0, workspace, 0"
+            "Super, 0, workspace, 10"
             "Super, mouse_down, workspace, e-1"
             "Super, mouse_up, workspace, e+1"
 

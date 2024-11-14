@@ -10,33 +10,6 @@ let
   second_shade = "rgba(255, 47, 208, 0.2)";
   second_shade_med = "rgba(255, 47, 208, 0.5)";
   second_shade_bold = "rgba(255, 47, 208, 0.8)";
-
-  # menuScript = pkgs.writeShellScriptBin "menu.sh" ''
-  #   options="Logout\nReboot\nShutdown\nLock\nSuspend"
-  #
-  #   chosen=$(echo -e "$options" | wofi --dmenu)
-  #
-  #   case $chosen in 
-  #     "Logout")
-  #       hyprctl dispatch exit
-  #       ;;
-  #     "Reboot")
-  #       reboot 
-  #       ;;
-  #     "Shutdown")
-  #       shutdown now
-  #       ;;
-  #     "Lock")
-  #       hyprlock
-  #       ;;
-  #     "Suspend")
-  #       systemctl suspend
-  #       ;;
-  #     *)
-  #       exit 1 
-  #       ;;
-  #   esac
-  # '';
 in
 {
   programs.waybar = {
@@ -45,7 +18,7 @@ in
         mainBar = {
             layer = "top";
             position = "top";
-            height = 30;
+            # height = 30;
 
             "modules-left" = [
               "custom/power_menu"
@@ -96,7 +69,7 @@ in
 
             "cpu" = {
                 "interval" = 1;
-                "format" = "󰍛 {usage}%";
+                "format" = "󰍛  {usage}%";
                 "on-click" = "alacritty -e btop";
               };
 
@@ -111,7 +84,7 @@ in
                 "format" = "{icon} {volume}%";
                 "format-muted" = "󰖁 Muted";
                 "format-icons" = {
-                  "default" = [ " " " " " " ];
+                  "default" = [ "  " "  " "  " ];
                 };
                 # "on-click" = "pamixer -t";
                 # "tooltip" = false;
@@ -125,11 +98,11 @@ in
               };
               "format"= "{icon} {capacity}%";
               "format-icons"= [
-                  " "
-                  " "
-                  " "
-                  " "
-                  " "
+                  "  "
+                  "  "
+                  "  "
+                  "  "
+                  "  "
                 ];
               };
 
@@ -147,7 +120,8 @@ in
 
     style = ''
     * {
-      font-size: 13px;
+      font-size: 14px;
+      font-family: "Hermit", Roboto;
     }
 
     window#waybar {
@@ -179,7 +153,7 @@ in
 
     #custom-power_menu {
       font-size: 19px;
-      padding: 0px 1px 0px 6px;
+      padding: 0px 2px 0px 5px;
       color: ${primary_col};
       border-radius: 50px;
       margin-right: 5px;
