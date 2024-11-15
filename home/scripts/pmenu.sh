@@ -6,7 +6,7 @@ case $chosen in
 "󰍃 Logout")
   hyprctl dispatch exit
   ;;
-"󰜉  Reboot")
+"󰜉 Reboot")
   reboot
   ;;
 "󰐥 Shutdown")

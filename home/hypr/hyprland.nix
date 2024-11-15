@@ -64,10 +64,10 @@ in
               rounding = 10;
               inactive_opacity = 0.8;
 
-              # shadow stuff
-              drop_shadow = true;
-              shadow_range = 10;
-              "col.shadow" = "rgba(00000080)";
+              # shadow stuff # Moved to shadow = {}; subcategory
+              # drop_shadow = true;
+              # shadow_range = 10;
+              # "col.shadow" = "rgba(00000080)";
 
               blur = {
                   enabled = true;
@@ -95,7 +95,7 @@ in
           bind = [
             "Super, W, exec, firefox"
             "Super, F, exec, thunar"
-            "Super, Q, exec, kitty -e tmux"
+            "Super, Q, exec, kitty"
             "Super, A, exec, anyrun"
             "Super, BackSpace, killactive"
             "Super, F11, fullscreen"

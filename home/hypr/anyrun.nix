@@ -52,11 +52,11 @@
       #match {
         color: rgb(39, 230, 255);
         background-color: rgba(0,0,0,0.5);
-        border-radius: 5px;
+        /* border-radius: 5px; */
       }
       #match-desc {
         background-color: rgba(0,0,0,0.5);
-        border-radius: 5px;
+        /* border-radius: 5px; */
       }
     '';
     #

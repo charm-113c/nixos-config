@@ -70,7 +70,7 @@ in
             "cpu" = {
                 "interval" = 1;
                 "format" = "󰍛  {usage}%";
-                "on-click" = "alacritty -e btop";
+                "on-click" = "kitty -e btop";
               };
 
             "memory" = {
@@ -127,8 +127,9 @@ in
     window#waybar {
       background-color: rgba(0,0,0,0);
       /* color: rgba(241, 221, 30, 0.8); */
-      color: ${second_shade_bold};
+      color: #ffe1c8; /* ${second_shade_bold}; */
       padding: 5px;
+      text-shadow: 0px 0px 5px ${second_shade_bold};
     }
 
     #custom-power_menu, #workspaces, .modules-center, .modules-right {
@@ -141,7 +142,8 @@ in
     button {
       border-radius: 15px;
       padding: 0px 5px;
-      color : ${second_shade_bold};
+      color: #ffe1c8; /* ${second_shade_bold}; */
+      text-shadow: 0px 0px 5px ${second_shade_bold};
     }
 
     @keyframes blink {
@@ -171,6 +173,7 @@ in
     #workspaces button.active {
       background-color: ${primary_shade};
       color: ${primary_shade_bold};
+      text-shadow: 0px 0px 5px ${primary_shade_bold};
     }
 
     #memory:hover, #cpu:hover {
@@ -178,6 +181,7 @@ in
       color: ${primary_shade_bold};
       border-radius: 15px;
       padding: 0px 5px 0px 5px;
+      text-shadow: 0px 0px 5px ${primary_shade_bold};
     }
 
     #battery {
@@ -188,6 +192,7 @@ in
     #battery.charging {
       background-color: ${primary_shade};
       color: ${primary_shade_bold};
+      text-shadow: 0px 0px 5px ${primary_shade_bold};
     }
 
     #battery.critical:not(.charging) {
@@ -222,6 +227,7 @@ in
       background-color: ${primary_shade};
       color: ${primary_shade_bold};
       padding-right: 4px;
+      text-shadow: 0px 0px 5px ${primary_shade_bold};
     }
     '';
 
