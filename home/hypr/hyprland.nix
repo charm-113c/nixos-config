@@ -88,6 +88,10 @@ in
               numlock_by_default = true;
             };
 
+          # windowrulev2 = [
+          #   "pseudo, class:(.*)"
+          # ];
+
           # misc = {
               # font_family = "";
             # };
@@ -137,7 +141,6 @@ in
             "Super+Shift, 9, movetoworkspace, 9"
 
             "Super, M, togglefloating"
-
           ];
 
           bindel = [
@@ -148,6 +151,11 @@ in
 
             ", F7, exec, brightnessctl set 5%-"
             ", F8, exec, brightnessctl set +5%"
+
+            "Super+Alt, L, resizeactive, 10 0"
+            "Super+Alt, K, resizeactive, 0 -10"
+            "Super+Alt, J, resizeactive, 0 10"
+            "Super+Alt, H, resizeactive, -10 0"
           ];
 
           bindl = [

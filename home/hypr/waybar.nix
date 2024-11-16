@@ -84,7 +84,7 @@ in
                 "format" = "{icon} {volume}%";
                 "format-muted" = "󰖁 Muted";
                 "format-icons" = {
-                  "default" = [ "  " "  " "  " ];
+                  "default" = [ " " " " " " ];
                 };
                 # "on-click" = "pamixer -t";
                 # "tooltip" = false;
@@ -98,11 +98,11 @@ in
               };
               "format"= "{icon} {capacity}%";
               "format-icons"= [
-                  "  "
-                  "  "
-                  "  "
-                  "  "
-                  "  "
+                  " "
+                  " "
+                  " "
+                  " "
+                  " "
                 ];
               };
 
@@ -121,15 +121,15 @@ in
     style = ''
     * {
       font-size: 14px;
-      font-family: "Hermit", Roboto;
+      font-family: Monaco, Consolas, monospace, Roboto;
     }
 
     window#waybar {
       background-color: rgba(0,0,0,0);
       /* color: rgba(241, 221, 30, 0.8); */
-      color: #ffe1c8; /* ${second_shade_bold}; */
+      color: #FFF3D5; /* ${second_shade_bold}; */
       padding: 5px;
-      text-shadow: 0px 0px 5px ${second_shade_bold};
+      text-shadow: 0px 0px 5px ${second_col};
     }
 
     #custom-power_menu, #workspaces, .modules-center, .modules-right {
@@ -142,8 +142,8 @@ in
     button {
       border-radius: 15px;
       padding: 0px 5px;
-      color: #ffe1c8; /* ${second_shade_bold}; */
-      text-shadow: 0px 0px 5px ${second_shade_bold};
+      color: #FFF3D5; /* ${second_shade_bold}; */
+      text-shadow: 0px 0px 5px ${second_col};
     }
 
     @keyframes blink {
@@ -159,6 +159,7 @@ in
       color: ${primary_col};
       border-radius: 50px;
       margin-right: 5px;
+      text-shadow: 0px 0px 5px ${second_col};
     }
 
     #custom-separator {
@@ -173,7 +174,7 @@ in
     #workspaces button.active {
       background-color: ${primary_shade};
       color: ${primary_shade_bold};
-      text-shadow: 0px 0px 5px ${primary_shade_bold};
+      text-shadow: 0px 0px 5px ${primary_col};
     }
 
     #memory:hover, #cpu:hover {
@@ -181,7 +182,7 @@ in
       color: ${primary_shade_bold};
       border-radius: 15px;
       padding: 0px 5px 0px 5px;
-      text-shadow: 0px 0px 5px ${primary_shade_bold};
+      text-shadow: 0px 0px 5px ${primary_col};
     }
 
     #battery {
@@ -192,7 +193,7 @@ in
     #battery.charging {
       background-color: ${primary_shade};
       color: ${primary_shade_bold};
-      text-shadow: 0px 0px 5px ${primary_shade_bold};
+      text-shadow: 0px 0px 5px ${primary_col};
     }
 
     #battery.critical:not(.charging) {
@@ -227,7 +228,7 @@ in
       background-color: ${primary_shade};
       color: ${primary_shade_bold};
       padding-right: 4px;
-      text-shadow: 0px 0px 5px ${primary_shade_bold};
+      text-shadow: 0px 0px 5px ${primary_col};
     }
     '';
 
