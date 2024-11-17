@@ -42,8 +42,8 @@
     dunst
     brightnessctl
     wofi
-    gsimplecal
     playerctl
+    clipboard-jh
 
     # File system viewer
     xfce.thunar

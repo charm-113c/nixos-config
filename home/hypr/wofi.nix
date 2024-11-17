@@ -40,7 +40,7 @@ in
               border: none;
               /* color: rgb(255, 47, 208); */
               border-radius: 10px;
-              color: #FFF3D5;
+              color: white;
               text-shadow: 0px 0px 5px ${second_col};
             }
           #entry:selected {

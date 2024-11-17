@@ -76,7 +76,7 @@ in
             "memory" = {
                 "interval" = 3;
                 "format" = "RAM {percentage}% | {used:0.1f}GiB";
-                "on-click" = "alacritty -e btop";
+                "on-click" = "kitty -e btop";
               };
 
             "pulseaudio" = {
@@ -127,7 +127,7 @@ in
     window#waybar {
       background-color: rgba(0,0,0,0);
       /* color: rgba(241, 221, 30, 0.8); */
-      color: #FFF3D5; /* ${second_shade_bold}; */
+      color: white;
       padding: 5px;
       text-shadow: 0px 0px 5px ${second_col};
     }
@@ -142,7 +142,7 @@ in
     button {
       border-radius: 15px;
       padding: 0px 5px;
-      color: #FFF3D5; /* ${second_shade_bold}; */
+      color: white;
       text-shadow: 0px 0px 5px ${second_col};
     }
 

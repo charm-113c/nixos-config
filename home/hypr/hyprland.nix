@@ -156,6 +156,11 @@ in
             "Super+Alt, K, resizeactive, 0 -10"
             "Super+Alt, J, resizeactive, 0 10"
             "Super+Alt, H, resizeactive, -10 0"
+
+            "Super, left, moveactive, -10 0"
+            "Super, right, moveactive, 10 0"
+            "Super, up, moveactive, 0 -10"
+            "Super, down, moveactive, 0 10"
           ];
 
           bindl = [

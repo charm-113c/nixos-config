@@ -166,7 +166,7 @@
      ripgrep
      fd
      # Allow copy/paste from/to Neovim
-     xclip
+     # xclip
      nerdfonts
      # Kanata for keyboard control
      kanata
@@ -178,12 +178,12 @@
      
      # Alacritty
      alacritty
-     alacritty-theme
+     # alacritty-theme
 
      # Gnome things
-     gnome.gnome-tweaks
-     gnome-extension-manager
-     gnomeExtensions.toggle-alacritty
+     # gnome.gnome-tweaks
+     # gnome-extension-manager
+     # gnomeExtensions.toggle-alacritty
 
      # Other software
      focuswriter
