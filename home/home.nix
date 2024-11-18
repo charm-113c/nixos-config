@@ -43,7 +43,9 @@
     brightnessctl
     wofi
     playerctl
+    wl-clipboard
     clipboard-jh
+    peaclock
 
     # File system viewer
     xfce.thunar
