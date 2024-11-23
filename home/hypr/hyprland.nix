@@ -168,6 +168,11 @@ in
               ", XF86AudioPlay, exec, playerctl play-pause"
               ", XF86AudioNext, exec, playerctl next"
           ];
+
+	  bindm = [
+		"Super, mouse:272, movewindow"
+		"Super, mouse:273, resizewindow"
+	  ];
         };
     };
   }
