@@ -193,7 +193,7 @@ in
 
     #battery.charging {
       background-color: ${primary_shade};
-      color: ${primary_shade_bold};
+      color: ${primary_col};
       text-shadow: 0px 0px 5px ${primary_col};
     }
 

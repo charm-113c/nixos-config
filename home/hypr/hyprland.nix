@@ -144,10 +144,10 @@ in
           ];
 
           bindel = [
-            ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-            ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-            ", F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-            ", F4, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+            ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
+            ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
+            ", F3, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
+            ", F4, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
 
             ", F7, exec, brightnessctl set 5%-"
             ", F8, exec, brightnessctl set +5%"
