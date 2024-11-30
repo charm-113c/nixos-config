@@ -122,7 +122,7 @@ in
     style = ''
     * {
       font-size: 14px;
-      font-family: Monaco, Consolas, monospace, Roboto;
+      /* font-family: Monaco, Consolas, monospace, Roboto; */
     }
 
     window#waybar {

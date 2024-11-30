@@ -74,7 +74,7 @@
     # Let's disable it to see if we get the opensource Nouveau drivers instead
   };
 
-  # GPU pkgs version is > 560 so we need 
+  # GPU pkgs version is > 560 so we need
   hardware.nvidia.open = true;
 
   # Configure console keymap
@@ -169,14 +169,6 @@
      # Allow copy/paste from/to Neovim
      # xclip
 
-     # Nerd fonts now need to be installed one by one
-     nerd-fonts.hack
-     nerd-fonts.ubuntu
-     nerd-fonts.hurmit
-     nerd-fonts.monofur
-     nerd-fonts.space-mono
-     nerd-fonts.ubuntu-mono
-
      # Kanata for keyboard control
      kanata
      tmux
@@ -218,6 +210,18 @@
      hyprland
      # Hyprland dependencies
      waybar
+  ];
+
+  fonts.packages = with pkgs; [
+     # Nerd fonts now need to be installed one by one
+     nerd-fonts.hack
+     nerd-fonts.ubuntu
+     nerd-fonts.hurmit
+     nerd-fonts.monofur
+     nerd-fonts.space-mono
+     nerd-fonts.ubuntu-mono
+     nerd-fonts.symbols-only
+     nerd-fonts.comic-shanns-mono
   ];
 
   # Amane Kanata!
