@@ -168,7 +168,15 @@
      fd
      # Allow copy/paste from/to Neovim
      # xclip
-     nerdfonts
+
+     # Nerd fonts now need to be installed one by one
+     nerd-fonts.hack
+     nerd-fonts.ubuntu
+     nerd-fonts.hurmit
+     nerd-fonts.monofur
+     nerd-fonts.space-mono
+     nerd-fonts.ubuntu-mono
+
      # Kanata for keyboard control
      kanata
      tmux

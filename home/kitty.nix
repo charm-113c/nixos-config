@@ -19,8 +19,11 @@
             visual_bell_duration = 0.5;
 
             # Colors
-            color4 = "#27E6FF"; # blue's dull version
-            # color12 = ""; # blue's bright version
+            color4 = "#FF0000";
+            # color4 = "#27E6FF"; # blue's dull version
+            # color12 = "#FF0000"; # blue's bright version
+            # color3 = "#FF0000"; # This should be purple, that I'm making red because Gurren Lagann
+            # Fuck it let's make it all Gurren Lagann
           };
       };
   }

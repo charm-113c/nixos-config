@@ -66,6 +66,7 @@
     gimp
     zip
     unzip
+     # libreoffice-qt6-fresh
    ];
 
   programs.tmux = {
