@@ -54,6 +54,17 @@
     LC_TELEPHONE = "it_IT.UTF-8";
     LC_TIME = "it_IT.UTF-8";
   };
+  # Add more input methods (i.e. Japanese)
+  i18n.inputMethod = {
+    type = "fcitx5";
+    enable = true;
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+    ];
+  };
+  # Suppress env var warnings
+  i18n.inputMethod.fcitx5.waylandFrontend = true;
 
   # Enable X11 windowing system
   services.xserver = {
@@ -227,21 +238,27 @@
   # Amane Kanata!
   services.kanata = {
     enable = true;
-    # Map caps to esc/lsft 
+    # Map caps to esc/lsft
     # Hold tab to make it into a lctrl (more convenient in some cases)
-    keyboards = { 
+    # Hold alt to temporarily switch back to normal kbd layout
+    keyboards = {
       "logi".config = ''
-(defsrc 
-  caps tab 
+(defsrc
+  esc caps tab
 )
 
-(defalias 
+(defalias
+  nrm (tap-hold 200 200 esc (layer-toggle normal))
   cec (tap-hold 150 150 esc lsft)
   stab (tap-hold 200 200 tab lctl)
 )
 
-(deflayer default 
-  @cec @stab
+(deflayer default
+  @nrm @cec @stab
+)
+
+(deflayer normal
+  esc caps tab
 )
       '';
       };
