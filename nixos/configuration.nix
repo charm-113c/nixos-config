@@ -129,7 +129,7 @@
         ll = "ls -l";
         edit = "~/.dotfiles/ && nvim";
         update = "sudo nixos-rebuild switch";
-        sysupdate = "sudo nix flake update && sudo nixos-rebuild switch";
+        sysupdate = "~/.dotfiles/ && sudo nix flake update && sudo nixos-rebuild switch";
       };
 
       # I'm also making use of Powerlevel10k

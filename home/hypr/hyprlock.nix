@@ -4,7 +4,8 @@
     enable = true;
     settings = {
       background = {
-          path = "~/.dotfiles/home/hypr/Wallpapers/bioluminescence-5120x2880-15292.jpg";
+          path = "~/.dotfiles/home/hypr/Wallpapers/Heaven Piercer.jpg";
+# "~/.dotfiles/home/hypr/Wallpapers/bioluminescence-5120x2880-15292.jpg";
           blur_passes = 1;
           blur_size = 4;
           grace = 5; # period in s after lock where mouse movement unlocks automatically
@@ -22,7 +23,7 @@
 
         {
           # Message module
-          text = "Greetings, $USER. How are you treating life?";
+          text = "Hey $USER. Show me your resolve.";
           halign = "center";
           valign = "center";
           position = "0, 0";

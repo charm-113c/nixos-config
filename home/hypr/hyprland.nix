@@ -24,6 +24,7 @@ in
           exec-once = [
             "waybar"
             "hyprpaper"
+            "fcitx5"
           ];
 
           monitor = [
