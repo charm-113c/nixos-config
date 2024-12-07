@@ -33,6 +33,8 @@ in
             "modules-right" = [
               "idle_inhibitor"
               "custom/separator"
+              "bluetooth"
+              "custom/separator"
               "cpu"
               "custom/separator"
               "memory"
@@ -67,6 +69,10 @@ in
               };
               "timeout"= 30;
             };
+            
+            "bluetooth" = {
+                "on-click" = "kitty -e bluetoothctl";
+              };
 
             "cpu" = {
                 "interval" = 1;
@@ -136,7 +142,7 @@ in
     #custom-power_menu, #workspaces, .modules-center, .modules-right {
       border: 1px solid ${primary_shade_bold};
       border-radius: 15px;
-      padding:  0px 5px 0px 5px;
+      padding:  1px 5px 1px 5px;
       background-color: rgba(0,0,0,0.7);
     }
 
@@ -156,7 +162,7 @@ in
 
     #custom-power_menu {
       font-size: 19px;
-      padding: 0px 2px 0px 5px;
+      padding: 0px 0px 0px 5px;
       color: ${primary_col};
       border-radius: 50px;
       margin-right: 5px;
@@ -178,7 +184,7 @@ in
       text-shadow: 0px 0px 5px ${primary_col};
     }
 
-    #memory:hover, #cpu:hover {
+    #memory:hover, #cpu:hover, #bluetooth:hover {
       background-color: ${primary_shade};
       color: ${primary_shade_bold};
       border-radius: 15px;
