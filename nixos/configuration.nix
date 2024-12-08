@@ -11,8 +11,8 @@
     ];
 
   # Bootloader.
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_11; # Nvidia driver broken on 6.12, sticking to this for a while
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_11; # Nvidia driver broken on 6.12, sticking to this for a while
   boot.loader = { 
     efi = { 
       canTouchEfiVariables = true;

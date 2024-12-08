@@ -234,7 +234,7 @@ in
     #idle_inhibitor.activated {
       background-color: ${primary_shade};
       color: ${primary_shade_bold};
-      padding-right: 4px;
+      padding-right: 2px;
       text-shadow: 0px 0px 5px ${primary_col};
     }
     '';
