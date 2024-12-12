@@ -24,7 +24,7 @@
       useOSProber = true;
       configurationLimit = 50;
     };
-    timeout = 10;
+    timeout = 5;
   };
 
   networking.hostName = "nixos"; # Define your hostname.
