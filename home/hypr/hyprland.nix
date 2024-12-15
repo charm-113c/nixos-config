@@ -23,8 +23,8 @@ in
 
           exec-once = [
             "waybar"
-            # "hyprpaper" # Run in below script
-            "/home/charm/.dotfiles/home/scripts/wallpaper.sh"
+            "hyprpaper"
+            "/home/charm/.dotfiles/home/scripts/wallpaper.sh >> ~/templog.log"
             "fcitx5"
           ];
 

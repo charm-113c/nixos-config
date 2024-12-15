@@ -19,7 +19,7 @@
             # ];
 
             # wallpaper = [
-            #   ", ~/.dotfiles/home/hypr/Wallpapers/Heaven Piercer.jpg"
+            #   ", ~/.dotfiles/home/hypr/Wallpapers/1075301.png"
             # ];
 
             # unload = [
