@@ -210,6 +210,7 @@
      thunderbird
      # libreoffice-qt6-fresh
      obsidian
+     anki
 
      # English word list
      hunspell

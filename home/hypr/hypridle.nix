@@ -21,10 +21,10 @@
                   on-resume = "hyprctl dispatch dpms on"; # screen on
                 }
 
-              {
-                  timeout = 600; # 10mn
-                  on-timeout = "systemctl suspend";
-                }
+              # { # external monitor doesn't respond after suspend (Nvidia GPU-related problem)
+              #     timeout = 600; # 10mn
+              #     on-timeout = "systemctl suspend";
+              #   }
             ];
           };
       };
