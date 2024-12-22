@@ -211,6 +211,7 @@
      # libreoffice-qt6-fresh
      obsidian
      anki
+     osu-lazer
 
      # English word list
      hunspell
