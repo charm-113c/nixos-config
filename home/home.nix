@@ -60,6 +60,7 @@
     hypridle
     hyprlock
     hyprpicker
+    hyprshot
 
     # Utility software
     notes

@@ -106,6 +106,10 @@ in
             "Super, BackSpace, killactive"
             "Super, F11, fullscreen"
 
+            # Screenshots
+            "Super, F5, exec, hyprshot -m window -o ~/Pictures/Screenshots/" # window
+            "Super, F6, exec, hyprshot -m output -o ~/Pictures/Screenshots/" # monitor
+
             "Super, 1, workspace, 1"
             "Super, 2, workspace, 2"
             "Super, 3, workspace, 3"
