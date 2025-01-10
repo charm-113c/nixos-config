@@ -3,8 +3,15 @@
 {
   imports = [
     ./hypr/hyprland.nix
-    # ./hypr/walker.nix
+    ./hypr/anyrun.nix
     ./hypr/waybar.nix
+    ./hypr/hyprpaper.nix
+    ./hypr/hypridle.nix
+    ./hypr/hyprlock.nix
+    ./hypr/wofi.nix
+
+    ./kitty.nix
+
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -27,20 +34,42 @@
 
   home.packages = with pkgs; [
     timer
-    # kitty
+    kitty
     btop
     sway
 
+    # Desktop utility
     pipewire
     dunst
-
-    wl-clipboard
     brightnessctl
+    wofi
+    playerctl
+    wl-clipboard
+    clipboard-jh
+    peaclock
 
-    # xwaylandvideobridge
-    # wireplumber
-  ];
-  # home.packages = [inputs.walker.packages.${system}.default];
+    # File system viewer
+    xfce.thunar
+    superfile
+    # Image viewer
+    xfce.ristretto
+    xfce.tumbler # and its accompanying thumbnailling daemon
+    nwg-look
+
+    # Hypr stuff
+    hyprpaper
+    hypridle
+    hyprlock
+    hyprpicker
+    hyprshot
+
+    # Utility software
+    notes
+    gimp
+    zip
+    unzip
+     # libreoffice-qt6-fresh
+   ];
 
   programs.tmux = {
       enable = true;
@@ -74,30 +103,14 @@
             startup_mode = "Maximized";
             title = "You Write Your Own Story";
           };
-          keyboard = {
-              bindings = [
-                { 
-                  key = "Down";
-                  mods = "Shift";
-                  action = "ScrollLineDown";
-                  }
-                { 
-                  key = "Up";
-                  mods = "Shift";
-                  action = "ScrollLineUp";
-                  }
-              ];
-            };
         };
     };
 
-  xdg.portal = {
-      xdgOpenUsePortal = true;
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gnome
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
-      ];
-    };
+  # programs.btop = {
+  # theme can't be changed from here for some reason,
+  # has to be done straight on its config File
+  # (also, copy the horizon theme from the btop github
+  # repo, it's very nice)
+
+
 }

@@ -12,6 +12,7 @@
 
   # Bootloader.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_11; # Nvidia driver broken on 6.12, sticking to this for a while
   boot.loader = { 
     efi = { 
       canTouchEfiVariables = true;
@@ -21,9 +22,9 @@
       efiSupport = true;
       device = "nodev";
       useOSProber = true;
-      configurationLimit = 30;
+      configurationLimit = 50;
     };
-    timeout = 10;
+    timeout = 5;
   };
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -53,6 +54,17 @@
     LC_TELEPHONE = "it_IT.UTF-8";
     LC_TIME = "it_IT.UTF-8";
   };
+  # Add more input methods (i.e. Japanese)
+  i18n.inputMethod = {
+    type = "fcitx5";
+    enable = true;
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+    ];
+  };
+  # Suppress env var warnings
+  i18n.inputMethod.fcitx5.waylandFrontend = true;
 
   # Enable X11 windowing system
   services.xserver = {
@@ -73,7 +85,7 @@
     # Let's disable it to see if we get the opensource Nouveau drivers instead
   };
 
-  # GPU pkgs version is > 560 so we need 
+  # GPU pkgs version is > 560 so we need
   hardware.nvidia.open = true;
 
   # Configure console keymap
@@ -107,7 +119,6 @@
     # Install firefox.
     firefox.enable = true;
 
-    # zshell
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -118,8 +129,12 @@
         ll = "ls -l";
         edit = "~/.dotfiles/ && nvim";
         update = "sudo nixos-rebuild switch";
-        sysupdate = "sudo nix flake update | sudo nixos-rebuild switch";
+        sysupdate = "~/.dotfiles/ && sudo nix flake update && sudo nixos-rebuild switch";
       };
+
+      # I'm also making use of Powerlevel10k
+      # But it doesn't have a dedicated package
+      # So I went with manual installation as on its Github repits Github repo
 
       # history.size = 10000;
       # history.ignoreAllDups = true;
@@ -131,6 +146,13 @@
       enable = true;
       package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     };
+
+    steam = {
+        enable = true;
+        remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+        dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+        localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+      };
   };
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -163,8 +185,8 @@
      ripgrep
      fd
      # Allow copy/paste from/to Neovim
-     xclip
-     nerdfonts
+     # xclip
+
      # Kanata for keyboard control
      kanata
      tmux
@@ -175,19 +197,21 @@
      
      # Alacritty
      alacritty
-     alacritty-theme
+     # alacritty-theme
 
      # Gnome things
-     gnome.gnome-tweaks
-     gnome-extension-manager
-     gnomeExtensions.toggle-alacritty
+     # gnome.gnome-tweaks
+     # gnome-extension-manager
+     # gnomeExtensions.toggle-alacritty
 
      # Other software
      focuswriter
      discord
      thunderbird
-     libreoffice-qt6-fresh
+     # libreoffice-qt6-fresh
      obsidian
+     anki
+     osu-lazer
 
      # English word list
      hunspell
@@ -200,39 +224,50 @@
      # Guess I'll need these too
      nodePackages_latest.npm
      nodejs_22
+     gnumake
+     binutils
 
      hyprland
-     # # Hyprland dependencies
-     # egl-wayland # Nvidia GPU compatibility component
-     # hyprland-protocols
-     # hyprlang
-     # hyprutils
-     # hyprwayland-scanner
-     # libdrm
-     # sdbus-cpp
+     # Hyprland dependencies
      waybar
+  ];
 
-     xdg-desktop-portal-gnome
+  fonts.packages = with pkgs; [
+     # Nerd fonts now need to be installed one by one
+     nerd-fonts.hack
+     nerd-fonts.ubuntu
+     nerd-fonts.hurmit
+     nerd-fonts.monofur
+     nerd-fonts.space-mono
+     nerd-fonts.ubuntu-mono
+     nerd-fonts.symbols-only
+     nerd-fonts.comic-shanns-mono
   ];
 
   # Amane Kanata!
   services.kanata = {
     enable = true;
-    # Map caps to esc/lsft 
+    # Map caps to esc/lsft
     # Hold tab to make it into a lctrl (more convenient in some cases)
-    keyboards = { 
+    # Hold alt to temporarily switch back to normal kbd layout
+    keyboards = {
       "logi".config = ''
-(defsrc 
-  caps tab 
+(defsrc
+  esc caps tab
 )
 
-(defalias 
+(defalias
+  nrm (tap-hold 200 200 esc (layer-toggle normal))
   cec (tap-hold 150 150 esc lsft)
   stab (tap-hold 200 200 tab lctl)
 )
 
-(deflayer default 
-  @cec @stab
+(deflayer default
+  @nrm @cec @stab
+)
+
+(deflayer normal
+  esc caps tab
 )
       '';
       };
@@ -282,4 +317,7 @@
   # Enable polkit for Hyprland
   security.polkit.enable = true; # Omarun!
 
+  environment.variables = rec {
+      EDITOR = "nvim";
+    };
 }
