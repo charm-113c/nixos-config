@@ -8,7 +8,7 @@ in
       enable = true;
 
       # plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
-      #   hyprpaper
+
       # ];
 
       settings = {

@@ -11,6 +11,7 @@
     ./hypr/wofi.nix
 
     ./kitty.nix
+
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -110,5 +111,6 @@
   # has to be done straight on its config File
   # (also, copy the horizon theme from the btop github
   # repo, it's very nice)
+
 
 }
