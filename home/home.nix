@@ -112,5 +112,4 @@
   # (also, copy the horizon theme from the btop github
   # repo, it's very nice)
 
-
 }
