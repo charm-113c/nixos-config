@@ -212,6 +212,7 @@
      obsidian
      anki
      osu-lazer
+     # virtualbox
 
      # English word list
      hunspell
@@ -231,6 +232,10 @@
      # Hyprland dependencies
      waybar
   ];
+
+  # Virtualbox stuff
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "charm" ];
 
   fonts.packages = with pkgs; [
      # Nerd fonts now need to be installed one by one
@@ -257,7 +262,7 @@
 )
 
 (defalias
-  nrm (tap-hold 200 200 esc (layer-toggle normal))
+  nrm (tap-hold 500 500 esc (layer-toggle normal))
   cec (tap-hold 150 150 esc lsft)
   stab (tap-hold 200 200 tab lctl)
 )
