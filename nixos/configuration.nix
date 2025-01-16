@@ -212,7 +212,7 @@
      obsidian
      anki
      osu-lazer
-     # virtualbox
+     docker
 
      # English word list
      hunspell
@@ -232,10 +232,6 @@
      # Hyprland dependencies
      waybar
   ];
-
-  # Virtualbox stuff
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "charm" ];
 
   fonts.packages = with pkgs; [
      # Nerd fonts now need to be installed one by one
