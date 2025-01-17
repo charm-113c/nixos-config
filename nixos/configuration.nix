@@ -159,7 +159,7 @@
   users.users.charm = {
     isNormalUser = true;
     description = "Charm";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
      # zshell
@@ -232,6 +232,19 @@
      # Hyprland dependencies
      waybar
   ];
+
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings = {
+      data-root = "/home/charm/Programming/Docker";
+    };
+    # being in the docker user group is like being root, hence 
+    # the use of rootless. However, I run into permission issues
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   fonts.packages = with pkgs; [
      # Nerd fonts now need to be installed one by one
