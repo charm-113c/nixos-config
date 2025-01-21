@@ -256,6 +256,10 @@
      nerd-fonts.ubuntu-mono
      nerd-fonts.symbols-only
      nerd-fonts.comic-shanns-mono
+     nerd-fonts.anonymice
+     nerd-fonts.caskaydia-mono
+     nerd-fonts.fantasque-sans-mono
+     nerd-fonts.recursive-mono
   ];
 
   # Amane Kanata!
