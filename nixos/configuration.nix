@@ -213,6 +213,7 @@
      anki
      osu-lazer
      docker
+     docker-compose
 
      # English word list
      hunspell
