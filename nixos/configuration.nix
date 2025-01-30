@@ -214,6 +214,7 @@
      osu-lazer
      docker
      docker-compose
+     ltris # Tetris
 
      # English word list
      hunspell
