@@ -2,6 +2,8 @@
 let
   active_col = "rgb(27e6ff)";
   inactive_col = "rgba(27e6ff4d)";
+  tab_active_col = "rgba(ff0000c8)";
+  tab_inactive_col = "rgba(00000088)";
 in 
 {
     wayland.windowManager.hyprland = {
@@ -93,10 +95,23 @@ in
           # windowrulev2 = [
           #   "pseudo, class:(.*)"
           # ];
+          
+          group = {
+              "col.border_active" = tab_active_col;
+              "col.border_inactive" = "rgba(ff000088)";
+              groupbar = {
+                font_family = "Hurmit Nerd Font";
+                font_size = 12;
+                # "rounding" = 10;
+                "col.active" = tab_active_col;
+                "col.inactive" = tab_inactive_col;
+              };
+            };
 
-          # misc = {
-              # font_family = "";
-            # };
+          misc = {
+              animate_manual_resizes = true;
+              new_window_takes_over_fullscreen = 2; # unmaximizes current full screen
+            };
 
           bind = [
             "Super, W, exec, firefox"
@@ -105,9 +120,10 @@ in
             "Super, A, exec, anyrun"
             "Super, BackSpace, killactive"
             "Super, F11, fullscreen"
+            "Super, T, togglegroup" # essentially tabs
 
             # Screenshots
-            "Super, F5, exec, hyprshot -m window -o ~/Pictures/Screenshots/" # window
+            "Super, F5, exec, hyprshot -m region -o ~/Pictures/Screenshots/" # select region with mouse
             "Super, F6, exec, hyprshot -m output -o ~/Pictures/Screenshots/" # monitor
 
             "Super, 1, workspace, 1"
@@ -123,17 +139,23 @@ in
             "Super, mouse_down, workspace, e-1"
             "Super, mouse_up, workspace, e+1"
 
-            "Control+Super, L, workspace, +1"
-            "Control+Super, H, workspace, -1"
+            "Super+Alt, L, workspace, +1"
+            "Super+Alt, H, workspace, -1"
+            "Super+Control, H, changegroupactive, b"
+            "Super+Control, L, changegroupactive, f"
 
-            "Super+Shift, H, movewindow, l"
-            "Super+Shift, L, movewindow, r"
-            "Super+Shift, K, movewindow, u"
-            "Super+Shift, J, movewindow, d"
+            # "Super+Shift, H, movewindow, l"
+            # "Super+Shift, L, movewindow, r"
+            # "Super+Shift, K, movewindow, u"
+            # "Super+Shift, J, movewindow, d"
             "Super, H, movefocus, l"
             "Super, L, movefocus, r"
             "Super, K, movefocus, u"
             "Super, J, movefocus, d"
+            "Super+Shift, H, movewindoworgroup, l"
+            "Super+Shift, L, movewindoworgroup, r"
+            "Super+Shift, K, movewindoworgroup, u"
+            "Super+Shift, J, movewindoworgroup, d"
 
             "Super+Shift, 0, movetoworkspace, 0"
             "Super+Shift, 1, movetoworkspace, 1"
@@ -175,10 +197,10 @@ in
               ", XF86AudioNext, exec, playerctl next"
           ];
 
-	  bindm = [
-		"Super, mouse:272, movewindow"
-		"Super, mouse:273, resizewindow"
-	  ];
+          bindm = [
+          "Super, mouse:272, movewindow"
+          "Super, mouse:273, resizewindow"
+          ];
         };
     };
   }
