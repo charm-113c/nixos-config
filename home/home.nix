@@ -50,7 +50,7 @@
 
     # File system viewer
     xfce.thunar
-    superfile
+    # superfile
     # Image viewer
     xfce.ristretto
     xfce.tumbler # and its accompanying thumbnailling daemon
@@ -65,46 +65,46 @@
 
     # Utility software
     notes
-    gimp
-    zip
-    unzip
+    # gimp
+    # zip
+    # unzip
      # libreoffice-qt6-fresh
    ];
 
-  programs.tmux = {
-      enable = true;
-      # Modify keybinds
-      extraConfig = ''
-        # remap prefix from "C-b" to "M-t" (e.g. alt + t)
-        unbind C-b
-        set-option -g prefix M-z
-        bind-key M-z send-prefix
+  # programs.tmux = {
+  #     enable = true;
+  #     # Modify keybinds
+  #     extraConfig = ''
+  #       # remap prefix from "C-b" to "M-t" (e.g. alt + t)
+  #       unbind C-b
+  #       set-option -g prefix M-z
+  #       bind-key M-z send-prefix
+  #
+  #       # split panes with i and -
+  #       bind i split-window -h 
+  #       bind - split-window -v 
+  #       unbind '"'
+  #       unbind %
+  #
+  #       # Move between panes with vi keybinds
+  #       bind h select-pane -L
+  #       bind j select-pane -D
+  #       bind k select-pane -U
+  #       bind l select-pane -R
+  #     '';
+  #   };
 
-        # split panes with i and -
-        bind i split-window -h 
-        bind - split-window -v 
-        unbind '"'
-        unbind %
-
-        # Move between panes with vi keybinds
-        bind h select-pane -L
-        bind j select-pane -D
-        bind k select-pane -U
-        bind l select-pane -R
-      '';
-    };
-
-  programs.alacritty = {
-      enable = true;
-
-      settings = {
-          window = {
-            opacity = 0.8;
-            startup_mode = "Maximized";
-            title = "You Write Your Own Story";
-          };
-        };
-    };
+  # programs.alacritty = {
+  #     enable = true;
+  #
+  #     settings = {
+  #         window = {
+  #           opacity = 0.8;
+  #           startup_mode = "Maximized";
+  #           title = "You Write Your Own Story";
+  #         };
+  #       };
+  #   };
 
   # programs.btop = {
   # theme can't be changed from here for some reason,

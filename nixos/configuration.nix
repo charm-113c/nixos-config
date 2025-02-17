@@ -189,14 +189,14 @@
 
      # Kanata for keyboard control
      kanata
-     tmux
+     # tmux
      # cbonsai because yes
      cbonsai
      zip
      unzip
      
      # Alacritty
-     alacritty
+     # alacritty
      # alacritty-theme
 
      # Gnome things
@@ -207,14 +207,14 @@
      # Other software
      focuswriter
      discord
-     thunderbird
+     # thunderbird
      # libreoffice-qt6-fresh
      obsidian
      anki
      osu-lazer
      docker
-     docker-compose
-     ltris # Tetris
+     # docker-compose
+     # ltris # Tetris
 
      # English word list
      hunspell
