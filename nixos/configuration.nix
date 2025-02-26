@@ -224,11 +224,12 @@
      gcc
      python3
      go
-     # Guess I'll need these too
+     # Guess I'll need these too, for JSON
      nodePackages_latest.npm
      nodejs_22
      gnumake
      binutils
+     zulu # Open-source JDK
 
      hyprland
      # Hyprland dependencies

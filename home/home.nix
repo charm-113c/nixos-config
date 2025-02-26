@@ -47,6 +47,7 @@
     wl-clipboard
     clipboard-jh
     peaclock
+    neofetch
 
     # File system viewer
     xfce.thunar
