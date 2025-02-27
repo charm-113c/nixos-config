@@ -186,6 +186,8 @@
      fd
      # Allow copy/paste from/to Neovim
      # xclip
+     fzf
+     fzf-zsh
 
      # Kanata for keyboard control
      kanata
