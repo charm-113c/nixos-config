@@ -232,6 +232,7 @@
      gnumake
      binutils
      zulu # Open-source JDK
+    rars # RISC V Assembler and Runtime Simulator
 
      hyprland
      # Hyprland dependencies
