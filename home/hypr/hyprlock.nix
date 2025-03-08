@@ -8,7 +8,7 @@
 # "~/.dotfiles/home/hypr/Wallpapers/bioluminescence-5120x2880-15292.jpg";
           blur_passes = 1;
           blur_size = 4;
-          grace = 5; # period in s after lock where mouse movement unlocks automatically
+          grace = 20; # period in s after lock where mouse movement unlocks automatically
         };
 
       label = [
