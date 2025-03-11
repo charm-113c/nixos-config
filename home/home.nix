@@ -48,6 +48,7 @@
     clipboard-jh
     peaclock
     neofetch
+    cava
 
     # File system viewer
     xfce.thunar
