@@ -72,6 +72,8 @@ in
             
             "bluetooth" = {
                 "on-click" = "kitty -e bluetoothctl";
+                "format-connected" = "";
+                "format" = "";
               };
 
             "cpu" = {
@@ -82,7 +84,7 @@ in
 
             "memory" = {
                 "interval" = 3;
-                "format" = "RAM {percentage}% | {used:0.1f}GiB";
+                "format" = "RAM {used:0.1f}GiB";
                 "on-click" = "kitty -e btop";
               };
 
@@ -190,6 +192,16 @@ in
       border-radius: 15px;
       padding: 0px 5px 0px 5px;
       text-shadow: 0px 0px 5px ${primary_col};
+    }
+
+    #bluetooth.connected {
+      background-color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.5);
+      animation-name: blink;
+      animation-duration: 2s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
     }
 
     #battery {
