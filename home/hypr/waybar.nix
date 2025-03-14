@@ -73,6 +73,7 @@ in
             "bluetooth" = {
                 "on-click" = "kitty -e bluetoothctl";
                 "format-connected" = "";
+                "format-connected-battery" = " {device_battery_percentage}%";
                 "format" = "";
               };
 
@@ -186,7 +187,7 @@ in
       text-shadow: 0px 0px 5px ${primary_col};
     }
 
-    #memory:hover, #cpu:hover, #bluetooth:hover {
+    #memory:hover, #cpu:hover, #bluetooth:hover, #bluetooth.on, #bluetooth.connected {
       background-color: ${primary_shade};
       color: ${primary_shade_bold};
       border-radius: 15px;
@@ -194,10 +195,16 @@ in
       text-shadow: 0px 0px 5px ${primary_col};
     }
 
+    @keyframes slow-blink {
+      to {
+        background-color: ${primary_shade_med};
+        color: #ffffff;
+      }
+    }
+
     #bluetooth.connected {
-      background-color: rgba(255, 255, 255, 0.5);
-      color: rgba(255, 255, 255, 0.5);
-      animation-name: blink;
+      /* color: ${primary_col}; */
+      animation-name: slow-blink;
       animation-duration: 2s;
       animation-timing-function: linear;
       animation-iteration-count: infinite;

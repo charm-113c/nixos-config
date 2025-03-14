@@ -232,7 +232,7 @@
      gnumake
      binutils
      zulu # Open-source JDK
-    rars # RISC V Assembler and Runtime Simulator
+    
 
      hyprland
      # Hyprland dependencies
@@ -277,7 +277,7 @@
     keyboards = {
       "logi".config = ''
 (defsrc
-  esc caps tab
+  esc caps tab alt
 )
 
 (defalias
@@ -287,11 +287,11 @@
 )
 
 (deflayer default
-  @nrm @cec @stab
+  @nrm @cec @stab lsft
 )
 
 (deflayer normal
-  esc caps tab
+  esc caps tab alt
 )
       '';
       };
