@@ -197,7 +197,7 @@ in
 
     @keyframes slow-blink {
       to {
-        background-color: ${primary_shade_med};
+        background-color: rgba(0,0,0,0);
         color: #ffffff;
       }
     }
@@ -205,7 +205,7 @@ in
     #bluetooth.connected {
       /* color: ${primary_col}; */
       animation-name: slow-blink;
-      animation-duration: 2s;
+      animation-duration: 3s;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
       animation-direction: alternate;

@@ -277,7 +277,7 @@
     keyboards = {
       "logi".config = ''
 (defsrc
-  esc caps tab alt
+  esc caps tab
 )
 
 (defalias
@@ -287,11 +287,11 @@
 )
 
 (deflayer default
-  @nrm @cec @stab lsft
+  @nrm @cec @stab
 )
 
 (deflayer normal
-  esc caps tab alt
+  esc caps tab
 )
       '';
       };
