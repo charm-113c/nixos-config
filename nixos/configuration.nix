@@ -232,7 +232,7 @@
      gnumake
      binutils
      zulu # Open-source JDK
-    
+     rars
 
      hyprland
      # Hyprland dependencies
