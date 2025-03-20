@@ -23,7 +23,7 @@
 
         {
           # Message module
-          text = "Hey $USER. Show me your resolve.";
+          text = "心の声はちゃんと聴いてね。";
           halign = "center";
           valign = "center";
           position = "0, 0";
