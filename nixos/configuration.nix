@@ -217,8 +217,6 @@
      docker
      # docker-compose
      # ltris # Tetris
-     # wine
-     # wine-wayland
 
      # English word list
      hunspell
@@ -234,7 +232,7 @@
      gnumake
      binutils
      zulu # Open-source JDK
-    
+     rars # RISC V Assembler and Runtime Simulator
 
      hyprland
      # Hyprland dependencies
