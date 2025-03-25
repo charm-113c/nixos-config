@@ -71,6 +71,7 @@
     # zip
     # unzip
      # libreoffice-qt6-fresh
+    haskellPackages.tetris
    ];
 
   # programs.tmux = {
