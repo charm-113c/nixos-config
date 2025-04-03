@@ -117,6 +117,7 @@ in
             "Super, W, exec, firefox"
             "Super, F, exec, thunar"
             "Super, Q, exec, kitty"
+            "Super, P, exec, kitty -e nvim"
             "Super, A, exec, anyrun"
             "Super, BackSpace, killactive"
             "Super, F11, fullscreen"

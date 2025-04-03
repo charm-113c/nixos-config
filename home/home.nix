@@ -66,12 +66,13 @@
     hyprshot
 
     # Utility software
-    notes
+    # notes
     # gimp
     # zip
     # unzip
      # libreoffice-qt6-fresh
     haskellPackages.tetris
+    kdePackages.ghostwriter
    ];
 
   # programs.tmux = {
