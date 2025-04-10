@@ -85,6 +85,8 @@
     # Let's disable it to see if we get the opensource Nouveau drivers instead
   };
 
+  services.davfs2.enable = true;
+
   # GPU pkgs version is > 560 so we need
   hardware.nvidia.open = true;
 
