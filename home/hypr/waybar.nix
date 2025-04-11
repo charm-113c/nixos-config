@@ -32,7 +32,7 @@ in
             "modules-center" = [ 
               # "custom/separator"
               "hyprland/window"
-              # "custom/separator"
+              "custom/separator"
             ];
 
             "modules-right" = [
