@@ -73,6 +73,7 @@
      # libreoffice-qt6-fresh
     haskellPackages.tetris
     kdePackages.ghostwriter
+    krita
    ];
 
   # programs.tmux = {
