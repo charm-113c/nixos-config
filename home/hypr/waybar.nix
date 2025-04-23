@@ -210,7 +210,7 @@ button {
   }
 }
 
-#bluetooth.connected {
+#bluetooth.on {
   /* color: ${primary_col}; */
   animation-name: slow-blink;
   animation-duration: 3s;

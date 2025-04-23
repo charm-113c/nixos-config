@@ -48,7 +48,9 @@
     clipboard-jh
     peaclock
     neofetch
-    cava
+    # cava
+    # anyrun
+    rofi-wayland
 
     # File system viewer
     xfce.thunar
