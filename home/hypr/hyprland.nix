@@ -118,7 +118,7 @@ in
             "Super, F, exec, thunar"
             "Super, Q, exec, kitty"
             "Super, P, exec, focuswriter"
-            "Super, A, exec, rofi -show drun"
+            "Super, A, exec, rofi -show combi -combi-modes \"window,run,ssh\" -modes combi"
             "Super, BackSpace, killactive"
             "Super, F11, fullscreen"
             "Super, T, togglegroup" # essentially tabs

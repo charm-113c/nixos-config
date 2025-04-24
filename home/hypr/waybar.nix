@@ -36,7 +36,7 @@ in
             ];
 
             "modules-right" = [
-              "custom/separator"
+              # "custom/separator"
               "idle_inhibitor"
               "custom/separator"
               "bluetooth"
