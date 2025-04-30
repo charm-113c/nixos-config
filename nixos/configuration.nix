@@ -219,6 +219,7 @@
      docker
      # docker-compose
      # ltris # Tetris
+     vivaldi
 
      # English word list
      hunspell
