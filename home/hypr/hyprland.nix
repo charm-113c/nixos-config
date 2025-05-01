@@ -114,7 +114,7 @@ in
             };
 
           bind = [
-            "Super, W, exec, firefox"
+            "Super, W, exec, vivaldi"
             "Super, F, exec, thunar"
             "Super, Q, exec, kitty"
             "Super, P, exec, focuswriter"
