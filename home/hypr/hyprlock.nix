@@ -23,7 +23,7 @@
 
         {
           # Message module
-          text = "心の声はちゃんと聴いてね。";
+          text = "Yo, harmony.";
           halign = "center";
           valign = "center";
           position = "0, 0";
