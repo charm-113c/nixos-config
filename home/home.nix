@@ -69,7 +69,7 @@
 
     # Utility software
     # notes
-    # gimp
+    gimp
     # zip
     # unzip
      # libreoffice-qt6-fresh
