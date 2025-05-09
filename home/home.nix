@@ -69,13 +69,13 @@
 
     # Utility software
     # notes
-    gimp
+    # gimp
     # zip
     # unzip
      # libreoffice-qt6-fresh
     haskellPackages.tetris
-    kdePackages.ghostwriter
-    krita
+    # kdePackages.ghostwriter
+    # krita
    ];
 
   # programs.tmux = {
