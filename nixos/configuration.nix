@@ -182,7 +182,7 @@
      # Miscellaneous tools
      git
      htop
-     wget
+     # wget
      neovim
      ripgrep
      fd
@@ -214,7 +214,7 @@
      # thunderbird
      # libreoffice-qt6-fresh
      obsidian
-     anki
+     # anki
      osu-lazer
      docker
      # docker-compose
