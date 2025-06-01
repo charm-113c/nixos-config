@@ -114,7 +114,7 @@ in
             };
 
           bind = [
-            "Super, W, exec, vivaldi"
+            "Super, W, exec, flatpak run com.vivaldi.Vivaldi"
             "Super, F, exec, thunar"
             "Super, Q, exec, kitty"
             "Super, P, exec, focuswriter"

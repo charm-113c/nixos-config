@@ -71,7 +71,7 @@
     # Use GNOME
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-    
+
     xserver = {
       enable = true;
 
@@ -89,6 +89,16 @@
     };
   };
 
+  # Use Flatpak to install Vivaldi
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+    
   services.davfs2.enable = true;
 
   # GPU pkgs version is > 560 so we need
@@ -223,8 +233,6 @@
      docker
      # docker-compose
      # ltris # Tetris
-     # vivaldi # Lack of maintainance means it was removed from nixpkgs
-     rPackages.vivaldi
 
      # English word list
      hunspell
