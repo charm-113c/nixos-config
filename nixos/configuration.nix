@@ -67,22 +67,26 @@
   i18n.inputMethod.fcitx5.waylandFrontend = true;
 
   # Enable X11 windowing system
-  services.xserver = {
-    enable = true;
-
+  services = {
     # Use GNOME
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    
+    xserver = {
+      enable = true;
 
-    # Configure keyboard
-    xkb = {
-      layout = "it";
-      variant = "";
+
+      # Configure keyboard
+      xkb = {
+        layout = "it";
+        variant = "";
+      };
+
+      # Enable Nvidia drivers
+      videoDrivers = [ "nvidia" ];
+      # Let's disable it to see if we get the opensource Nouveau drivers instead
+      #
     };
-
-    # Enable Nvidia drivers
-    videoDrivers = [ "nvidia" ];
-    # Let's disable it to see if we get the opensource Nouveau drivers instead
   };
 
   services.davfs2.enable = true;
@@ -182,7 +186,7 @@
      # Miscellaneous tools
      git
      htop
-     # wget
+     wget
      neovim
      ripgrep
      fd
@@ -219,7 +223,8 @@
      docker
      # docker-compose
      # ltris # Tetris
-     vivaldi
+     # vivaldi # Lack of maintainance means it was removed from nixpkgs
+     rPackages.vivaldi
 
      # English word list
      hunspell
