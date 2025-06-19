@@ -230,10 +230,11 @@
      # libreoffice-qt6-fresh
      obsidian
      # anki
-     osu-lazer
+     # osu-lazer
      docker
      # docker-compose
      # ltris # Tetris
+     # unityhub
 
      # English word list
      hunspell
@@ -249,7 +250,7 @@
      gnumake
      binutils
      zulu # Open-source JDK
-     rars # RISC V Assembler and Runtime Simulator
+     # rars # RISC V Assembler and Runtime Simulator
 
      hyprland
      # Hyprland dependencies
@@ -356,6 +357,7 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
+    optimise.automatic = true;
   };
 
   # ### Hyprland stuff ###

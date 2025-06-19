@@ -36,10 +36,11 @@
     timer
     kitty
     btop
-    sway
+    # sway
+    # dotnetCorePackages.sdk_9_0_3xx # Needed for C#
 
     # Desktop utility
-    pipewire
+    # pipewire
     dunst
     brightnessctl
     wofi
