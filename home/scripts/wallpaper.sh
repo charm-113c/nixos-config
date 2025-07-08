@@ -3,7 +3,7 @@
 
 prefix="$HOME/.dotfiles/home/hypr/Wallpapers"
 # Declare all wanted wallpapers here
-wallpapers=("${prefix}/Space Travel.jpg" "${prefix}/1310201.jpeg" "${prefix}/1310702.png") # "${prefix}/Challenge.png" "${prefix}/1140292.jpg")
+wallpapers=("${prefix}/Space Travel.jpg" "${prefix}/1310201.jpeg" "${prefix}/1310702.png" "${prefix}/436854.jpg" "${prefix}/1140292.jpg" "${prefix}/1338111.png" "${prefix}/1358147.png")
 
 # Roll the die
 i=$((RANDOM % ${#wallpapers[@]}))
