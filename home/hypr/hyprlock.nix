@@ -4,9 +4,9 @@
     enable = true;
     settings = {
       background = {
-          path = "~/.dotfiles/home/hypr/Wallpapers/Heaven Piercer.jpg";
+          path = "~/.dotfiles/home/hypr/Wallpapers/9.jpg";
 # "~/.dotfiles/home/hypr/Wallpapers/bioluminescence-5120x2880-15292.jpg";
-          blur_passes = 1;
+          blur_passes = 0;
           blur_size = 4;
           grace = 20; # period in s after lock where mouse movement unlocks automatically
         };
@@ -23,7 +23,7 @@
 
         {
           # Message module
-          text = "Yo, harmony.";
+          text = "Yo, Harmony.";
           halign = "center";
           valign = "center";
           position = "0, 0";
