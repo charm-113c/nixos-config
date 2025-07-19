@@ -9,7 +9,7 @@
     ./hypr/hypridle.nix
     ./hypr/hyprlock.nix
     ./hypr/wofi.nix
-    ./hypr/rofi-wayland.nix
+    ./hypr/rofi.nix
 
     ./kitty.nix
 
@@ -52,7 +52,7 @@
     neofetch
     # cava
     # anyrun
-    rofi-wayland
+    rofi
 
     # File system viewer
     xfce.thunar
