@@ -72,7 +72,7 @@
           dots_center = true;
           fade_on_empty = true;
           # font_color = "rgb(241, 221, 30)";
-          inner_color = "rgba(0,0,0,0.2)";
+          inner_color = "rgba(0,0,0,0.5)";
           outer_color = "rgba(39, 230, 255, 0.5)";
           outline_thickness = 2;
           placeholder_text = "Enter password";

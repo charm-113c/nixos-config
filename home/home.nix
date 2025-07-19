@@ -52,7 +52,7 @@
     neofetch
     # cava
     # anyrun
-    rofi
+    # rofi
 
     # File system viewer
     xfce.thunar
