@@ -9,6 +9,7 @@
     ./hypr/hypridle.nix
     ./hypr/hyprlock.nix
     ./hypr/wofi.nix
+    ./hypr/rofi-wayland.nix
 
     ./kitty.nix
 
