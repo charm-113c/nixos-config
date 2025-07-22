@@ -256,8 +256,8 @@
      # docker-compose
      # ltris # Tetris
      # unityhub
-     aseprite
-     godot
+     # aseprite
+     # godot
 
      # English word list
      hunspell

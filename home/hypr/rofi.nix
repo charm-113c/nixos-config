@@ -17,7 +17,7 @@
         icon-theme: "Papirus-dark";
         drun-display-format: "{icon} {name}";
         hide-scrollbar: true;
-        display-combi: " Launch ";
+        display-combi: " Launch: ";
         display-drun: " Apps ";
         display-run: " Run ";
         display-window: " Window ";
@@ -45,14 +45,14 @@
       }
 
       prompt {
-        padding: 20px;
+        padding: 16px;
         border-radius: 5px;
         background-color: rgba(0, 0, 0, 0);
         text-color: @highlight;
       }
 
       entry {
-        padding: 15px;
+        padding: 10px;
         margin: 5px 5px 5px 5px;
         text-color: @fg-col;
         background-color: rgba(0, 0, 0, 0);
@@ -70,6 +70,7 @@
 
       element{
         padding: 4px;
+        margin: 0px 2px 0px 2px;
         background-color: rgba(0, 0, 0, 0);
         // text-color: @fg-col;
         border-radius: 5px;
