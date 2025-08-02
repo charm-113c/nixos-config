@@ -167,7 +167,7 @@
         edit = "~/.dotfiles/ && nvim";
         update = "sudo nixos-rebuild switch";
         sysupdate = "~/.dotfiles/ && sudo nix flake update && sudo nixos-rebuild switch";
-        sclean = "sudo nix-collect-garbage --delete-older-than 7d";
+        sysclean = "sudo nix-collect-garbage --delete-older-than 7d";
       };
 
       # I'm also making use of Powerlevel10k
