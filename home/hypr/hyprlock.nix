@@ -6,7 +6,7 @@
 
       general = {
         ignore_empty_input = 1;
-        grace = 10; # period in s after lock where mouse movement unlocks automatically
+        grace = 20; # period in s after lock where mouse movement unlocks automatically
       };
 
       animation = [
