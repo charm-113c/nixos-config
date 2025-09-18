@@ -226,6 +226,7 @@
      # xclip
      fzf
      fzf-zsh
+     mkcert
 
      # Kanata for keyboard control
      kanata
