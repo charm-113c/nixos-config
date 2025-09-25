@@ -275,6 +275,7 @@
      binutils
      zulu # Open-source JDK
      # rars # RISC V Assembler and Runtime Simulator
+     nodePackages_latest.localtunnel
 
      hyprland
      # Hyprland dependencies
