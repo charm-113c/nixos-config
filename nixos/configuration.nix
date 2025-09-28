@@ -259,6 +259,7 @@
      # unityhub
      # aseprite
      # godot
+     snort
 
      # English word list
      hunspell
