@@ -76,7 +76,7 @@
     # unzip
      # libreoffice-qt6-fresh
     haskellPackages.tetris
-    # kdePackages.ghostwriter
+    kdePackages.ghostwriter
     # krita
    ];
 
