@@ -321,22 +321,23 @@
     keyboards = {
       "logi".config = ''
 (defsrc
-  esc caps tab h j k l
+  caps tab h j k l menu
 )
 
 (defalias
-  nrm (tap-hold 300 300 esc (layer-switch normal))
   cec (tap-hold 300 300 esc (layer-switch normal))
   ncec (tap-hold 300 300 esc (layer-switch default))
   stab (tap-hold 200 200 tab lctl)
+  wing (layer-switch normal)
+  nwing (layer-switch default)
 )
 
 (deflayer default
-  @nrm @cec @stab h j k l
+  @cec @stab h j k l @wing
 )
 
 (deflayer normal ;; toggles VIM-like normal mode
-  @nrm @ncec @stab ArrowLeft ArrowUp ArrowDown ArrowRight
+  @ncec @stab ArrowLeft ArrowDown ArrowUp ArrowRight @nwing
 )
       '';
       };
