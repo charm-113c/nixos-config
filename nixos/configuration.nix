@@ -55,17 +55,17 @@
     LC_TIME = "it_IT.UTF-8";
   };
   # Add more input methods (i.e. Japanese)
-  # i18n.inputMethod = {
-  #   type = "fcitx5";
-  #   enable = true;
-  #   fcitx5 = {
-  #     waylandFrontend = true;
-  #     addons = with pkgs; [
-  #       fcitx5-mozc
-  #       # fcitx5-gtk
-  #     ];
-  #   };
-  # };
+  i18n.inputMethod = {
+    type = "fcitx5";
+    enable = true;
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-mozc
+        # fcitx5-gtk
+      ];
+    };
+  };
 
   # Enable X11 windowing system
   services = {
