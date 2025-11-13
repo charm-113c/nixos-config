@@ -278,6 +278,10 @@
      zulu # Open-source JDK
      # rars # RISC V Assembler and Runtime Simulator
      nodePackages_latest.localtunnel
+     spring-boot-cli
+     # maven
+     jetbrains.idea-ultimate
+
 
      hyprland
      # Hyprland dependencies
