@@ -279,7 +279,7 @@
      # rars # RISC V Assembler and Runtime Simulator
      nodePackages_latest.localtunnel
      spring-boot-cli
-     # maven
+     maven
      jetbrains.idea-ultimate
 
 
