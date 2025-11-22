@@ -288,6 +288,10 @@
      waybar
   ];
 
+  # For some reason since 25.11 orca installed itself and cannot be disabled
+  # So let's try this
+  services.orca.enable = false;
+
   virtualisation.docker = {
     enable = true;
     daemon.settings = {
