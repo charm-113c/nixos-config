@@ -281,7 +281,7 @@
      spring-boot-cli
      maven
      jetbrains.idea-ultimate
-
+     mpich
 
      hyprland
      # Hyprland dependencies
