@@ -124,7 +124,36 @@
   services.davfs2.enable = true;
 
   # GPU pkgs version is > 560 so we need
-  hardware.nvidia.open = true;
+  hardware = {
+    graphics.enable = true;
+
+    nvidia = {
+      modesetting.enable = true;
+
+      # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+      # Enable this if you have graphical corruption issues or application crashes after waking
+      # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+      # of just the bare essentials.
+      powerManagement.enable = false;
+
+      powerManagement.finegrained = false;
+      
+      open = true;
+      nvidiaSettings = true;
+
+      # Using Nvidia PRIME
+      prime = {
+          sync.enable = true;
+
+          intelBusId = "PCI:0:2:0";
+          nvidiaBusId = "PCI:1:0:0";
+        };
+
+      # API change led to current version (kernel 6.18) failing to build.
+      # Using the beta drivers to get fix early
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+    };
+  };
 
   # Configure console keymap
   console = {
@@ -220,7 +249,7 @@
      git
      htop
      wget
-     neovim
+     # neovim
      ripgrep
      fd
      # Allow copy/paste from/to Neovim

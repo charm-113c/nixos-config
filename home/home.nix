@@ -39,6 +39,7 @@
     btop
     # sway
     # dotnetCorePackages.sdk_9_0_3xx # Needed for C#
+    tree-sitter
 
     # Desktop utility
     # pipewire
@@ -79,6 +80,15 @@
     kdePackages.ghostwriter
     # krita
    ];
+
+  programs.neovim = {
+      enable = true;
+
+      plugins = with pkgs.vimPlugins; [
+        lazy-nvim
+        nvim-treesitter.withAllGrammars
+      ];
+    };
 
   # programs.tmux = {
   #     enable = true;

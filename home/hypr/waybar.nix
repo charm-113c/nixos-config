@@ -95,6 +95,10 @@ in
                 "interval" = 3;
                 "format" = "RAM {used:0.1f}GiB";
                 "on-click" = "kitty -e btop";
+                "states" = {
+                  # RAM in critical state at 90% usage
+                  "critical" = 90;
+                };
               };
 
             "pulseaudio" = {
@@ -230,7 +234,7 @@ button {
   text-shadow: 0px 0px 5px ${primary_col};
 }
 
-#battery.critical:not(.charging) {
+#battery.critical:not(.charging), #memory:critical {
   background-color: rgba(230, 130, 155, 0.2);
   color: rgb(230, 130, 155);
   animation-name: blink;
