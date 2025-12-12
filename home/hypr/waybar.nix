@@ -234,7 +234,7 @@ button {
   text-shadow: 0px 0px 5px ${primary_col};
 }
 
-#battery.critical:not(.charging), #memory:critical {
+#battery.critical:not(.charging), #memory.critical {
   background-color: rgba(230, 130, 155, 0.2);
   color: rgb(230, 130, 155);
   animation-name: blink;

@@ -13,6 +13,9 @@
   # Bootloader.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_11; # Nvidia driver broken on 6.12, sticking to this for a while
+  # Nvidia-related setting. Disabling iGPU because system won't boot and this might be the issue
+  # boot.kernelParams = [ "module_blacklist=i915" ];
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_17; # Nvidia driver broken on 6.18, sticking to this for a while
   boot.loader = { 
     efi = { 
       canTouchEfiVariables = true;
@@ -126,6 +129,7 @@
   # GPU pkgs version is > 560 so we need
   hardware = {
     graphics.enable = true;
+    # graphics.enable32Bit = true;
 
     nvidia = {
       modesetting.enable = true;
@@ -137,23 +141,44 @@
       powerManagement.enable = false;
 
       powerManagement.finegrained = false;
-      
+
       open = true;
       nvidiaSettings = true;
 
-      # Using Nvidia PRIME
+      # Using Nvidia PRIME; alternatively, can offload by disabling sync and 
+      # removing "modesetting" from videoDrivers, up above.
       prime = {
           sync.enable = true;
 
+          # offload = {
+          #   enable = true;
+          #   enableOffloadCmd = true;
+          # };
+
           intelBusId = "PCI:0:2:0";
           nvidiaBusId = "PCI:1:0:0";
-        };
+         };
 
       # API change led to current version (kernel 6.18) failing to build.
       # Using the beta drivers to get fix early
       package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
   };
+
+  # Add specialisation: create a generation that offloads from Nvidia GPU to iGPU
+  # This essentially disables the dGPU and could lead to longer battery life
+  # specialisation = {
+  #   on-the-go.configuration = {
+  #     system.nixos.tags = ["on-the-go"];
+  #     hardware.nvidia = {
+  #       prime = {
+  #         offload.enable = lib.mkForce true;
+  #         offload.enableOffloadCmd = lib.mkForce true;
+  #         sync.enable = lib.mkForce false;
+  #       };
+  #     };
+  #   };
+  # };
 
   # Configure console keymap
   console = {
@@ -289,7 +314,7 @@
      # unityhub
      # aseprite
      # godot
-     snort
+     vivaldi
 
      # English word list
      hunspell
@@ -310,7 +335,8 @@
      spring-boot-cli
      maven
      jetbrains.idea-ultimate
-     mpich
+     # mpich
+     h2
 
      hyprland
      # Hyprland dependencies
