@@ -115,14 +115,14 @@
   };
 
   # Use Flatpak to install Vivaldi
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
+  services.flatpak.enable = false;
+  # systemd.services.flatpak-repo = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   path = [ pkgs.flatpak ];
+  #   script = ''
+  #     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  #   '';
+  # };
     
   services.davfs2.enable = true;
 
@@ -332,9 +332,9 @@
      zulu # Open-source JDK
      # rars # RISC V Assembler and Runtime Simulator
      nodePackages_latest.localtunnel
-     spring-boot-cli
-     maven
-     jetbrains.idea-ultimate
+     # spring-boot-cli
+     # maven
+     # jetbrains.idea
      # mpich
      # h2
 
@@ -374,10 +374,10 @@
      nerd-fonts.caskaydia-mono
      nerd-fonts.fantasque-sans-mono
      nerd-fonts.recursive-mono
-     noto-fonts-cjk-sans
   ];
 
   # Amane Kanata!
+  # Kanataso...
   services.kanata = {
     enable = true;
     # Map caps to esc/lsft
