@@ -337,6 +337,8 @@
      # jetbrains.idea
      # mpich
      # h2
+     gnuplot
+     python313Packages.pip
 
      hyprland
      # Hyprland dependencies
@@ -374,6 +376,9 @@
      nerd-fonts.caskaydia-mono
      nerd-fonts.fantasque-sans-mono
      nerd-fonts.recursive-mono
+
+    noto-fonts
+    noto-fonts-cjk-sans
   ];
 
   # Amane Kanata!
