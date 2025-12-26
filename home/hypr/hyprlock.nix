@@ -36,7 +36,7 @@
 
         {
           # Message module
-          text = "Yo, Harmony.";
+          text = "ご機嫌よう、ハーモニー。";
           color = "rgba(255, 255, 255, 0.7)";
           halign = "center";
           valign = "center";

@@ -16,6 +16,10 @@
   # Nvidia-related setting. Disabling iGPU because system won't boot and this might be the issue
   # boot.kernelParams = [ "module_blacklist=i915" ];
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_17; # Nvidia driver broken on 6.18, sticking to this for a while
+
+  # Another day, another problem: Nvidia driver not recognised. Run lshw and lo and behold,
+  # "NoveCore" is listed as GPU driver. Seems to be Nvidia's open source driver, but not working. Blacklisting it for now.
+  boot.blacklistedKernelModules = ["nova_core"];
   boot.loader = { 
     efi = { 
       canTouchEfiVariables = true;
@@ -161,24 +165,24 @@
 
       # API change led to current version (kernel 6.18) failing to build.
       # Using the beta drivers to get fix early
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      # package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
   };
 
   # Add specialisation: create a generation that offloads from Nvidia GPU to iGPU
   # This essentially disables the dGPU and could lead to longer battery life
-  # specialisation = {
-  #   on-the-go.configuration = {
-  #     system.nixos.tags = ["on-the-go"];
-  #     hardware.nvidia = {
-  #       prime = {
-  #         offload.enable = lib.mkForce true;
-  #         offload.enableOffloadCmd = lib.mkForce true;
-  #         sync.enable = lib.mkForce false;
-  #       };
-  #     };
-  #   };
-  # };
+  specialisation = {
+    on-the-go.configuration = {
+      system.nixos.tags = ["on-the-go"];
+      hardware.nvidia = {
+        prime = {
+          offload.enable = lib.mkForce true;
+          offload.enableOffloadCmd = lib.mkForce true;
+          sync.enable = lib.mkForce false;
+        };
+      };
+    };
+  };
 
   # Configure console keymap
   console = {
