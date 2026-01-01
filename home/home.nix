@@ -56,11 +56,14 @@
     # rofi
 
     # File system viewer
-    xfce.thunar
+    # xfce.thunar
+    thunar
     # superfile
     # Image viewer
-    xfce.ristretto
-    xfce.tumbler # and its accompanying thumbnailling daemon
+    # xfce.ristretto
+    ristretto
+    # xfce.tumbler # and its accompanying thumbnailling daemon
+    tumbler
     nwg-look
 
     # Hypr stuff

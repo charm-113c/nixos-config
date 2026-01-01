@@ -110,7 +110,7 @@ in
 
           misc = {
               animate_manual_resizes = true;
-              new_window_takes_over_fullscreen = 2; # unmaximizes current full screen
+              on_focus_under_fullscreen = 2; # unmaximizes current full screen
             };
 
           bind = [
