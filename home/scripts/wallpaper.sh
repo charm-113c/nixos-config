@@ -8,10 +8,12 @@ wallpapers=("${prefix}/129850683_p0.png" "${prefix}/127659704_p1.png" "${prefix}
 # Roll the die
 i=$((RANDOM % ${#wallpapers[@]}))
 
+wbg "${wallpapers[$i]}" &
 # Run hyprpaper
-pkill hyprpaper
-hyprpaper &
+# pkill hyprpaper
+# hyprpaper &
 # Load and set
-sleep 1 # This part is important, else next step fails
-hyprctl hyprpaper preload "${wallpapers[$i]}"
-hyprctl hyprpaper wallpaper ", ${wallpapers[$i]}"
+# sleep 1 # This part is important, else next step fails
+# hyprctl hyprpaper preload "${wallpapers[$i]}" # Ok so as of 2026 no preloads are needed, but more options are
+# hyprctl hyprpaper wallpaper ", ${wallpapers[$i]}"
+# hyprctl hyprpaper wallpaper "HDMI-A-1, ${wallpapers[$i]}"

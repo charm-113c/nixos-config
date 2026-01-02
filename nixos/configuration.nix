@@ -347,6 +347,7 @@
      hyprland
      # Hyprland dependencies
      waybar
+     wbg
   ];
 
   # For some reason since 25.11 orca installed itself and cannot be disabled
