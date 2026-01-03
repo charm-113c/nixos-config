@@ -8,7 +8,11 @@ wallpapers=("${prefix}/129850683_p0.png" "${prefix}/127659704_p1.png" "${prefix}
 # Roll the die
 i=$((RANDOM % ${#wallpapers[@]}))
 
-wbg "${wallpapers[$i]}" &
+# Use awww instead
+awww kill # In case daemon is active
+awww-daemon &
+
+awww img "${wallpapers[$i]}" &
 # Run hyprpaper
 # pkill hyprpaper
 # hyprpaper &

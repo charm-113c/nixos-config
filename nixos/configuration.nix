@@ -348,6 +348,9 @@
      # Hyprland dependencies
      waybar
      wbg
+  ] # And non-pkgs stuff
+  ++ [
+    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
   ];
 
   # For some reason since 25.11 orca installed itself and cannot be disabled

@@ -25,7 +25,7 @@ in
 
           exec-once = [
             "waybar"
-            "hyprpaper"
+            # "hyprpaper"
             "/home/charm/.dotfiles/home/scripts/wallpaper.sh >> ~/templog.log"
             "fcitx5"
           ];
@@ -154,10 +154,10 @@ in
             "Super, L, movefocus, r"
             "Super, K, movefocus, u"
             "Super, J, movefocus, d"
-            "Super+Shift, H, movewindow, l"
-            "Super+Shift, L, movewindow, r"
-            "Super+Shift, K, movewindow, u"
-            "Super+Shift, J, movewindow, d"
+            "Super+Shift, H, movewindoworgroup, l"
+            "Super+Shift, L, movewindoworgroup, r"
+            "Super+Shift, K, movewindoworgroup, u"
+            "Super+Shift, J, movewindoworgroup, d"
 
             "Super+Shift, 0, movetoworkspace, 0"
             "Super+Shift, 1, movetoworkspace, 1"
