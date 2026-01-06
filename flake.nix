@@ -27,7 +27,8 @@
         lib = nixpkgs.lib;
       in {
           nixosConfigurations = {
-              system = "x86_64-linux";
+              # system = "x86_64-linux";
+              stdenv.hostPlatform.system = "x86_64-linux"; # system has been renamed
               # nixos is hostname, can be whatever, provided you then give .#<hostname> as argument to rebuild --flake
               nixos = lib.nixosSystem {
 
