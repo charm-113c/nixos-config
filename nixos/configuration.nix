@@ -226,7 +226,8 @@
         edit = "~/.dotfiles/ && nvim";
         update = "sudo nixos-rebuild switch";
         sysupdate = "~/.dotfiles/ && sudo nix flake update && sudo nixos-rebuild switch";
-        sysclean = "sudo nix-collect-garbage --delete-older-than 7d";
+        sysclean = "nix-collect-garbage --delete-older-than 7d && sudo nix-collect-garbage --delete-older-than 7d";
+        getHotspot = "nmcli device wifi list || nmcli device wifi connect \"Nightingale I\"";
       };
 
       # I'm also making use of Powerlevel10k
@@ -241,7 +242,7 @@
 
     hyprland = {
       enable = true;
-      package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+      package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
     };
 
     steam = {
@@ -338,16 +339,13 @@
      nodePackages_latest.localtunnel
      # spring-boot-cli
      # maven
-     # jetbrains.idea
+     # jetbrains.idea-ultimate
      # mpich
      # h2
-     gnuplot
-     python313Packages.pip
 
      hyprland
      # Hyprland dependencies
      waybar
-     wbg
   ] # And non-pkgs stuff
   ++ [
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
@@ -384,13 +382,12 @@
      nerd-fonts.caskaydia-mono
      nerd-fonts.fantasque-sans-mono
      nerd-fonts.recursive-mono
-
-    noto-fonts
-    noto-fonts-cjk-sans
+     noto-fonts
+     noto-fonts-cjk-sans
   ];
 
   # Amane Kanata!
-  # Kanataso...
+  # Kanataso... See you
   services.kanata = {
     enable = true;
     # Map caps to esc/lsft
