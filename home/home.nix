@@ -86,10 +86,9 @@
 
   programs.neovim = {
       enable = true;
-
       plugins = with pkgs.vimPlugins; [
         lazy-nvim
-        nvim-treesitter.withAllGrammars
+        # nvim-treesitter.withAllGrammars
       ];
     };
 

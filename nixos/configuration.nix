@@ -251,6 +251,10 @@
         dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
         localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
       };
+
+    # Non-FHS compliance is getting frustrating, can't run some executables
+    # So enable this
+    nix-ld.enable = true;
   };
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -330,8 +334,7 @@
      python3
      go
      # Guess I'll need these too, for JSON
-     # nodePackages_latest.npm
-     # nodejs_22
+     nodePackages_latest.npm
      gnumake
      binutils
      zulu # Open-source JDK
@@ -342,6 +345,14 @@
      # jetbrains.idea-ultimate
      # mpich
      # h2
+
+     # All needed for tree-sitter-cli, so hopefully Neovim works fine
+     # cargo
+     rocmPackages.clang
+     nodejs_25
+     # TexLive stuff
+     texliveFull
+     zathura
 
      hyprland
      # Hyprland dependencies
