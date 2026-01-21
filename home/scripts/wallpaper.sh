@@ -9,8 +9,8 @@ wallpapers=("${prefix}/1310702.png" "${prefix}/127659704_p1.png" "${prefix}/1314
 i=$((RANDOM % ${#wallpapers[@]}))
 
 # Use awww instead
-awww kill # In case daemon is active
-awww-daemon &
+# awww kill # In case daemon is active
+# awww-daemon &
 
 awww img "${wallpapers[$i]}" &
 # Run hyprpaper

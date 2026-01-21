@@ -289,7 +289,7 @@
      # Allow copy/paste from/to Neovim
      # xclip
      fzf
-     fzf-zsh
+     # fzf-zsh
      mkcert
 
      # Kanata for keyboard control

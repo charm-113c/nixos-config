@@ -26,6 +26,7 @@ in
           exec-once = [
             "waybar"
             # "hyprpaper"
+            "awww-daemon &"
             "/home/charm/.dotfiles/home/scripts/wallpaper.sh >> ~/templog.log"
             "fcitx5"
           ];
