@@ -89,6 +89,7 @@
       plugins = with pkgs.vimPlugins; [
         lazy-nvim
         # nvim-treesitter.withAllGrammars
+        mason-lspconfig-nvim # Set system clangd as LSP instead of Mason's install
       ];
     };
 

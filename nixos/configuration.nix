@@ -345,10 +345,13 @@
      # jetbrains.idea-ultimate
      # mpich
      # h2
+     cmake
+     bear
 
      # All needed for tree-sitter-cli, so hopefully Neovim works fine
      # cargo
-     rocmPackages.clang
+     clang-tools # For C++ to work
+     clang
      nodejs_25
      # TexLive stuff
      texliveFull
