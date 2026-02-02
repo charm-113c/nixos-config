@@ -245,12 +245,12 @@
       package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
     };
 
-    steam = {
-        enable = true;
-        remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-        dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-        localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-      };
+    # steam = {
+    #     enable = true;
+    #     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    #     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    #     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    #   };
 
     # Non-FHS compliance is getting frustrating, can't run some executables
     # So enable this
@@ -296,7 +296,7 @@
      kanata
      # tmux
      # cbonsai because yes
-     # cbonsai
+     cbonsai
      zip
      unzip
      
