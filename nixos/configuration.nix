@@ -228,6 +228,7 @@
         sysupdate = "~/.dotfiles/ && sudo nix flake update && sudo nixos-rebuild switch";
         sysclean = "nix-collect-garbage --delete-older-than 7d && sudo nix-collect-garbage --delete-older-than 7d";
         getHotspot = "nmcli device wifi list || nmcli device wifi connect \"Nightingale I\"";
+        snowfall = "~ && systemd-inhibit --what=idel ./snow.sh";
       };
 
       # I'm also making use of Powerlevel10k
@@ -245,12 +246,12 @@
       package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
     };
 
-    # steam = {
-    #     enable = true;
-    #     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    #     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    #     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-    #   };
+    steam = {
+        enable = true;
+        remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+        dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+        localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+      };
 
     # Non-FHS compliance is getting frustrating, can't run some executables
     # So enable this
