@@ -228,7 +228,7 @@
         sysupdate = "~/.dotfiles/ && sudo nix flake update && sudo nixos-rebuild switch";
         sysclean = "nix-collect-garbage --delete-older-than 7d && sudo nix-collect-garbage --delete-older-than 7d";
         getHotspot = "nmcli device wifi list || nmcli device wifi connect \"Nightingale I\"";
-        snowfall = "~ && systemd-inhibit --what=idel ./snow.sh";
+        snowfall = "~ && systemd-inhibit --what=idle ./snow.sh";
       };
 
       # I'm also making use of Powerlevel10k

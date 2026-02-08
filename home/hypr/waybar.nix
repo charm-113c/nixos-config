@@ -37,7 +37,8 @@ in
 
             "modules-right" = [
               # "custom/separator"
-              "idle_inhibitor"
+              # "idle_inhibitor"
+              "network"
               "custom/separator"
               "bluetooth"
               "custom/separator"
@@ -69,13 +70,25 @@ in
                 # "format" = "\\";
               };
 
-            "idle_inhibitor"= {
-              "format"= "{icon}";
-              "format-icons"= {
-                "activated"= " ";
-                "deactivated"= " ";
-              };
-              "timeout"= 30;
+            # "idle_inhibitor"= {
+            #   "format"= "{icon}";
+            #   "format-icons"= {
+            #     "activated"= " ";
+            #     "deactivated"= " ";
+            #   };
+            #   "timeout"= 30;
+            # };
+            "network"= {
+              "format"= "";
+              "format-wifi"= " {signalStrength}%  ";
+              "format-ethernet"= " ";
+              # "format-disconnected"= ""; # An empty format will hide the module.
+              "format-disconnected"= " ";
+              "tooltip-format"= "{ifname}";
+              "tooltip-format-wifi"= "{essid} ({signalStrength}%)  ";
+              "tooltip-format-ethernet"= "{ifname}  ";
+              "tooltip-format-disconnected"= "Disconnected";
+              "on-click" = "kitty -e nmcli";
             };
             
             "bluetooth" = {
@@ -199,7 +212,7 @@ button {
   text-shadow: 0px 0px 5px ${primary_col};
 }
 
-#memory:hover, #cpu:hover, #bluetooth:hover, #bluetooth.on, #bluetooth.connected {
+#memory:hover, #cpu:hover, #bluetooth:hover, #bluetooth.on, #bluetooth.connected, #network:hover {
   background-color: ${primary_shade};
   color: ${primary_shade_bold};
   border-radius: 15px;
@@ -214,7 +227,7 @@ button {
   }
 }
 
-#bluetooth.on {
+#bluetooth.on, #network.wifi {
   /* color: ${primary_col}; */
   animation-name: slow-blink;
   animation-duration: 3s;
