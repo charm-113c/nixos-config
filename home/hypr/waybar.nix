@@ -27,6 +27,7 @@ in
               # "custom/separator"
               "hyprland/workspaces"
               # "custom/separator"
+              "cava"
             ];
 
             "modules-center" = [ 
@@ -70,6 +71,30 @@ in
                 # "format" = "\\";
               };
 
+            "cava" = {
+                "framerate"= 30;
+                "autosens"= 0;
+                "sensitivity"= 5;
+                "bars"= 20;
+                "lower_cutoff_freq"= 50;
+                "higher_cutoff_freq"= 10000;
+
+                "sleep_timer" = 5;
+                "format_silent"= "☯";
+
+                # Input and output respectively
+                "method"= ["pulse" "sdl"];
+                "source"= "auto";
+                "stereo"= true;
+                "reverse"= false;
+                "bar_delimiter"= 0;
+                "monstercat"= true;
+                "waves"= true;
+                "noise_reduction"= 0.1;
+                "input_delay"= 2;
+                "format-icons"= ["▁"  "▂"  "▃"  "▄"  "▅"  "▆"  "▇"  "█" ];
+              };
+
             # "idle_inhibitor"= {
             #   "format"= "{icon}";
             #   "format-icons"= {
@@ -78,6 +103,7 @@ in
             #   };
             #   "timeout"= 30;
             # };
+
             "network"= {
               "format"= "";
               "format-wifi"= " {signalStrength}%  ";
@@ -172,6 +198,16 @@ window#waybar {
   border-radius: 15px;
   padding:  1px 5px 1px 5px;
   background-color: rgba(0,0,0,0.7);
+}
+
+#cava {
+  border: 1px solid ${primary_shade_bold};
+  border-radius: 15px;
+  padding:  1px 10px 1px 10px;
+  background-color: rgba(0,0,0,0.7);
+  font-size: 19px;
+  color: ${primary_col};
+  text-shadow: 0px 0px 5px ${second_col};
 }
 
 button {

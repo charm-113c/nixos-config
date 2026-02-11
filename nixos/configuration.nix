@@ -361,6 +361,7 @@
      hyprland
      # Hyprland dependencies
      waybar
+     cava
   ] # And non-pkgs stuff
   ++ [
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
