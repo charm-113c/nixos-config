@@ -11,11 +11,12 @@
     ];
 
   # Bootloader.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_11; # Nvidia driver broken on 6.12, sticking to this for a while
   # Nvidia-related setting. Disabling iGPU because system won't boot and this might be the issue
   # boot.kernelParams = [ "module_blacklist=i915" ];
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_17; # Nvidia driver broken on 6.18, sticking to this for a while
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_18; # Hello past me. Now 6.19 isn't building, so we go back to 6.18
 
   # Another day, another problem: Nvidia driver not recognised. Run lshw and lo and behold,
   # "NoveCore" is listed as GPU driver. Seems to be Nvidia's open source driver, but not working. Blacklisting it for now.
@@ -227,7 +228,7 @@
         update = "sudo nixos-rebuild switch";
         sysupdate = "~/.dotfiles/ && sudo nix flake update && sudo nixos-rebuild switch";
         sysclean = "nix-collect-garbage --delete-older-than 7d && sudo nix-collect-garbage --delete-older-than 7d";
-        getHotspot = "nmcli device wifi list || nmcli device wifi connect \"Nightingale I\"";
+        getHotspot = "nmcli device wifi list && nmcli device wifi connect \"Nightingale I\"";
         snowfall = "~ && systemd-inhibit --what=idle ./snow.sh";
       };
 
