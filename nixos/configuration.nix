@@ -339,7 +339,7 @@
      nodePackages_latest.npm
      gnumake
      binutils
-     zulu # Open-source JDK
+     zulu25 # Open-source JDK
      # rars # RISC V Assembler and Runtime Simulator
      nodePackages_latest.localtunnel
      # spring-boot-cli
