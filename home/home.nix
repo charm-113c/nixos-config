@@ -50,7 +50,7 @@
     wl-clipboard
     clipboard-jh
     peaclock
-    neofetch
+    # neofetch
     # cava
     # anyrun
     # rofi
