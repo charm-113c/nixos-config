@@ -354,6 +354,9 @@
      # cargo
      clang-tools # For C++ to work
      clang
+     glibc
+     libgcc
+     gdb
      nodejs_25
      # TexLive stuff
      texliveFull
