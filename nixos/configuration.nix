@@ -335,13 +335,11 @@
      gcc
      python3
      go
-     # Guess I'll need these too, for JSON
-     nodePackages_latest.npm
      gnumake
      binutils
      zulu25 # Open-source JDK
      # rars # RISC V Assembler and Runtime Simulator
-     nodePackages_latest.localtunnel
+     localtunnel
      # spring-boot-cli
      maven
      jetbrains.idea
@@ -357,6 +355,7 @@
      glibc
      libgcc
      gdb
+     # Guess I'll need these too, for JSON
      nodejs_25
      # TexLive stuff
      texliveFull
