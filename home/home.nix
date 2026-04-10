@@ -91,6 +91,8 @@
         # nvim-treesitter.withAllGrammars
         mason-lspconfig-nvim # Set system clangd as LSP instead of Mason's install
       ];
+      withPython3 = true;
+      withRuby = false;
     };
 
   # programs.tmux = {
