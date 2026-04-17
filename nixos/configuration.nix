@@ -412,26 +412,32 @@
     # Map caps to esc/lsft
     # Hold tab to make it into a lctrl (more convenient in some cases)
     # Hold alt to temporarily switch back to normal kbd layout
+    # Hold menu for 300ms+ to switch into writer mode: keys "è + ù à" respectively are transformed into ctrl-arrow combo
     keyboards = {
       "logi".config = ''
 (defsrc
-  caps tab h j k l menu
+  caps tab h j k l menu BracketLeft BracketRight Backslash Quote
 )
 
 (defalias
   cec (tap-hold 300 300 esc (layer-switch normal))
   ncec (tap-hold 300 300 esc (layer-switch default))
   stab (tap-hold 200 200 tab lctl)
-  wing (layer-switch normal)
+  wing (tap-hold 300 300 (layer-switch normal) (layer-switch writer))
   nwing (layer-switch default)
 )
 
 (deflayer default
-  @cec @stab h j k l @wing
+  @cec @stab h j k l @wing BracketLeft BracketRight Backslash Quote
 )
 
 (deflayer normal ;; toggles VIM-like normal mode
-  @ncec @stab ArrowLeft ArrowDown ArrowUp ArrowRight @nwing
+  @ncec @stab ArrowLeft ArrowDown ArrowUp ArrowRight @nwing BracketLeft BracketRight Backslash Quote
+
+)
+
+(deflayer writer
+  @ncec @stab h j k l @nwing C-ArrowLeft C-ArrowUp C-ArrowRight C-ArrowDown
 )
       '';
       };
