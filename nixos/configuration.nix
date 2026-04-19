@@ -437,7 +437,7 @@
 )
 
 (deflayer writer
-  @ncec @stab h j k l @nwing C-ArrowLeft C-ArrowUp C-ArrowRight C-ArrowDown
+  @ncec @stab h j k l @nwing ArrowLeft ArrowUp ArrowRight ArrowDown
 )
       '';
       };

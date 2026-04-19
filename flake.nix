@@ -41,6 +41,7 @@
                     home-manager.nixosModules.home-manager {
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
+                        home-manager.backupFileExtension = "bkp";
                         # specialArgs seems to only work for standard modules,
                         # a home manager module seems to need extraSpecialArgs
                         home-manager.extraSpecialArgs = {
