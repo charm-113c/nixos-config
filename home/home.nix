@@ -86,6 +86,8 @@
 
   programs.neovim = {
       enable = true;
+      defaultEditor = true;
+      sideloadInitLua = true;
       plugins = with pkgs.vimPlugins; [
         lazy-nvim
         # nvim-treesitter.withAllGrammars
@@ -93,6 +95,27 @@
       ];
       withPython3 = true;
       withRuby = false;
+      viAlias = true;
+      vimAlias = true;
+
+      initLua =
+          ''
+            require("config.lazy")
+
+            -- vim.cmd.colorscheme("catppuccin-nvim")
+
+            vim.api.nvim_set_hl(0, "Normal", { bg = none })
+            vim.api.nvim_set_hl(0, "NormalFloat", { bg = none })
+
+            require'lspconfig'.clangd.setup{
+              cmd = {
+                "clangd",
+                "--background-index",
+                -- This tells clangd it's okay to query compilers in the nix store
+                "--query-driver=/nix/store/**/*"
+              }
+            }
+          '';
     };
 
   # programs.tmux = {

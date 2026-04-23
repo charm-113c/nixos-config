@@ -257,6 +257,8 @@
     # Non-FHS compliance is getting frustrating, can't run some executables
     # So enable this
     nix-ld.enable = true;
+
+    # neovim.enable = true;
   };
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
