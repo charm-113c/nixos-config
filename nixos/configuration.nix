@@ -129,7 +129,7 @@
   #   '';
   # };
     
-  services.davfs2.enable = true;
+  # services.davfs2.enable = true;
 
   # GPU pkgs version is > 560 so we need
   hardware = {
