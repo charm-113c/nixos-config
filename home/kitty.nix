@@ -14,16 +14,13 @@
             cursor = "#27E6FF";
             cursor_shape = "underline";
             cursor_trail = 10;
+            cursor_trail_delay = "0.3 0.8";
 
             # Bell
             visual_bell_duration = 0.5;
 
             # Colors
             color4 = "#FF0000";
-            # color4 = "#27E6FF"; # blue's dull version
-            # color12 = "#FF0000"; # blue's bright version
-            # color3 = "#FF0000"; # This should be purple, that I'm making red because Gurren Lagann
-            # Fuck it let's make it all Gurren Lagann
           };
       };
   }
