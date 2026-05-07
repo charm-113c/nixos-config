@@ -133,7 +133,13 @@
 
   # GPU pkgs version is > 560 so we need
   hardware = {
-    graphics.enable = true;
+
+    graphics = {
+      enable = true;
+      # extraPackages = with pkgs; [
+      #   vpl-gpu-rt
+      # ];
+    };
     # graphics.enable32Bit = true;
 
     nvidia = {
