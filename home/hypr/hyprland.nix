@@ -19,7 +19,7 @@ in
             "XDG_SESSION_TYPE, wayland"
             "GBM_BACKEND, nvidia-drm"
             "__GLX_VENDOR_LIBRARY_NAME, nvidia"
-            "AQ_DRM_DEVICES, /dev/dri/card2:/dev/dri/card1"
+            "AQ_DRM_DEVICES, /dev/dri/card1:/dev/dri/card0"
             "NIXOS_OZONE_WL, 1"
           ];
 
@@ -198,8 +198,8 @@ in
               ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
               ", XF86AudioPlay, exec, playerctl play-pause"
               ", XF86AudioNext, exec, playerctl next"
-              ", F1, exec, playerctl next"
-              ", F2, exec, playerctl previous"
+              ", F2, exec, playerctl next"
+              ", F1, exec, playerctl previous"
           ];
 
           bindm = [
