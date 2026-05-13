@@ -334,6 +334,8 @@
      # aseprite
      # godot
      vivaldi
+     # Instal yt-dlp, a feature-rich YT video downloader
+     python313Packages.yt-dlp
 
      # English word list
      hunspell
@@ -357,7 +359,7 @@
      bear
 
      # All needed for tree-sitter-cli, so hopefully Neovim works fine
-     # cargo
+     cargo
      clang-tools # For C++ to work
      clang
      glibc
@@ -376,6 +378,7 @@
   ] # And non-pkgs stuff
   ++ [
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
+    inputs.kopuz.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # For some reason since 25.11 orca installed itself and cannot be disabled
@@ -483,9 +486,14 @@
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
 
-      # Enable Cachix for Hyprland cache
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      # Enable Cachix for Hyprland and Kopuz cache
+      substituters = ["https://hyprland.cachix.org" "https://cache.nixos.org" "https://kopuz.cachix.org"];
+      trusted-public-keys = [
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "kopuz.cachix.org-1:J2X3AnAYhKTJW5S3aCLoA1ckonQXVNZMQvhZA0YAufw="
+      ];
+
     };
     # garbage collector
     gc = {
