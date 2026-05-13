@@ -19,7 +19,7 @@ in
             "XDG_SESSION_TYPE, wayland"
             "GBM_BACKEND, nvidia-drm"
             "__GLX_VENDOR_LIBRARY_NAME, nvidia"
-            "AQ_DRM_DEVICES, /dev/dri/card1:/dev/dri/card0"
+            "AQ_DRM_DEVICES, /dev/dri/card0:/dev/dri/card1"
             "NIXOS_OZONE_WL, 1"
           ];
 
