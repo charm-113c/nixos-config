@@ -12,6 +12,8 @@ in
       # plugins = with inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}; [
 
       # ];
+     
+      configType = "hyprlang"; # So they're using lua now. Cool.
 
       settings = {
           env = [
@@ -19,7 +21,7 @@ in
             "XDG_SESSION_TYPE, wayland"
             "GBM_BACKEND, nvidia-drm"
             "__GLX_VENDOR_LIBRARY_NAME, nvidia"
-            "AQ_DRM_DEVICES, /dev/dri/card0:/dev/dri/card1"
+            "AQ_DRM_DEVICES, /dev/dri/card1:/dev/dri/card0"
             "NIXOS_OZONE_WL, 1"
           ];
 

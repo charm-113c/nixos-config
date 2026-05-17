@@ -15,7 +15,8 @@
           };
 
         awww.url = "git+https://codeberg.org/LGFae/awww";
-        kopuz.url = "github:temidaradev/kopuz";
+        # kopuz.url = "github:temidaradev/kopuz";
+        psysonic.url = "github:Psychotoxical/psysonic";
 
         # anyrun = {
         #   url = "github:anyrun-org/anyrun";
