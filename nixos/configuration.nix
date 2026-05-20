@@ -196,24 +196,45 @@
     keyMap = "it2";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+  services = {
+    # Enable CUPS to print documents.
+    printing.enable = false;
+
+    # Enable sound with pipewire.
+    pulseaudio.enable = false;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+    };
+
+    # Self-hosted music streaming service
+    navidrome = {
+      enable = true;
+      # user = "charm";
+      # group = "users";
+
+      # Full options at https://www.navidrome.org/docs/usage/configuration/options/#available-options
+      settings = {
+        MusicFolder = "/home/charm/Music/";
+        EnableSharing = true;
+        Address = "0.0.0.0";
+        Port = 4533;
+      };
+    };
   };
+  # Allow navidrome to read home directory
+  systemd.services.navidrome.serviceConfig.ProtectHome = lib.mkForce false;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -338,7 +359,9 @@
      python313Packages.yt-dlp
      # Needed to extract audio only from yt-dlp
      ffmpeg
-     cmus
+     # cmus
+     mpv # General purpose media player, needed for feishin
+     feishin
 
      # English word list
      hunspell
@@ -382,7 +405,7 @@
   ++ [
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     # inputs.kopuz.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.psysonic.packages.${pkgs.stdenv.hostPlatform.system}.psysonic
+    # inputs.psysonic.packages.${pkgs.stdenv.hostPlatform.system}.psysonic
   ];
 
   # For some reason since 25.11 orca installed itself and cannot be disabled

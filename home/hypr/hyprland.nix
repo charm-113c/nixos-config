@@ -130,6 +130,7 @@ in
             # Screenshots
             "Super, F5, exec, hyprshot -m region -o ~/Pictures/Screenshots/" # select region with mouse
             "Super, F6, exec, hyprshot -m output -o ~/Pictures/Screenshots/" # monitor
+            "Super, F9, exec, hyprpicker -a" # Find pixel's color and copy it to clipboard
 
             "Super, 1, workspace, 1"
             "Super, 2, workspace, 2"
