@@ -321,7 +321,7 @@
      # xclip
      fzf
      # fzf-zsh
-     mkcert
+     # mkcert
 
      # Kanata for keyboard control
      kanata
@@ -378,21 +378,21 @@
      localtunnel
      # spring-boot-cli
      maven
-     jetbrains.idea
+     # jetbrains.idea
      # mpich
      # h2
      cmake
-     bear
+     # bear
 
      # All needed for tree-sitter-cli, so hopefully Neovim works fine
      cargo
      clang-tools # For C++ to work
      clang
-     glibc
-     libgcc
-     gdb
+     # glibc
+     # libgcc
+     # gdb
      # Guess I'll need these too, for JSON
-     nodejs_25
+     # nodejs_25
      # TexLive stuff
      texliveFull
      zathura
@@ -413,16 +413,16 @@
   services.orca.enable = false;
 
   virtualisation.docker = {
-    enable = true;
-    daemon.settings = {
-      data-root = "/home/charm/Programming/Docker";
-    };
+    enable = false;
+    # daemon.settings = {
+    #   data-root = "/home/charm/Programming/Docker";
+    # };
     # being in the docker user group is like being root, hence 
     # the use of rootless. However, I run into permission issues
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
+    # rootless = {
+    #   enable = true;
+    #   setSocketVariable = true;
+    # };
   };
 
   fonts.packages = with pkgs; [
