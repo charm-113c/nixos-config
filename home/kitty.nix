@@ -4,7 +4,8 @@
         enable = true;
 
         settings = {
-            background_opacity = 0.8;
+            background_opacity = 0.75;
+            background_blur = 0;
 
             # Font settings
             font_family = "Hurmit Nerd Font";

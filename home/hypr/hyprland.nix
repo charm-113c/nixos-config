@@ -77,10 +77,10 @@ in
               # "col.shadow" = "rgba(00000080)";
 
               blur = {
-                  enabled = true;
-                  size = 4;
-                  new_optimizations = true;
-                  xray = true;
+                  enabled = false;
+                  # size = 4;
+                  # new_optimizations = true;
+                  # xray = true;
                 };
             };
 
