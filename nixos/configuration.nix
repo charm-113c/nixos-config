@@ -514,15 +514,15 @@
       auto-optimise-store = true;
 
       # Enable Cachix for Hyprland and Kopuz cache
-      substituters = ["https://hyprland.cachix.org" "https://cache.nixos.org" "https://psysonic.cachix.org"]; # "https://kopuz.cachix.org"];
+      substituters = ["https://hyprland.cachix.org" "https://cache.nixos.org" ]; # "https://psysonic.cachix.org"]; # "https://kopuz.cachix.org"];
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         # Kopuz music player
         # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         # "kopuz.cachix.org-1:J2X3AnAYhKTJW5S3aCLoA1ckonQXVNZMQvhZA0YAufw="
         # Psysonic music player
-        "psysonic.cachix.org-1:M9cQyQ7tgvUWOQ5Pyt8ozlMoPLtOZir6MfRuTH9/VYA="
-        "cache.nixos.org-1:6NCHdSuAYQQOxGEKTGXLN9WWRXoSBT8GRiSnR6IdfGW="
+        # "psysonic.cachix.org-1:M9cQyQ7tgvUWOQ5Pyt8ozlMoPLtOZir6MfRuTH9/VYA="
+        # "cache.nixos.org-1:6NCHdSuAYQQOxGEKTGXLN9WWRXoSBT8GRiSnR6IdfGW="
       ];
 
     };
