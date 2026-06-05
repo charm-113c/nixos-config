@@ -4,7 +4,7 @@
         enable = true;
 
         settings = {
-            background_opacity = 0.75;
+            background_opacity = 0.65;
             background_blur = 0;
 
             # Font settings
