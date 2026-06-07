@@ -34,7 +34,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    timer
+    # timer
     kitty
     btop
     # sway
@@ -48,8 +48,8 @@
     wofi
     playerctl
     wl-clipboard
-    clipboard-jh
-    peaclock
+    # clipboard-jh
+    # peaclock
     # neofetch
     # cava
     # anyrun
@@ -78,9 +78,9 @@
     # gimp
     # zip
     # unzip
-     # libreoffice-qt6-fresh
-    haskellPackages.tetris
-    kdePackages.ghostwriter
+    # libreoffice-qt6-fresh
+    # haskellPackages.tetris
+    # kdePackages.ghostwriter
     # krita
    ];
 
@@ -103,7 +103,9 @@
             require("config.lazy")
 
             -- vim.cmd.colorscheme("catppuccin-nvim")
+            vim.opt.spell = true;
 
+            vim.opt.spelllang = "en_gb"
             vim.api.nvim_set_hl(0, "Normal", { bg = none })
             vim.api.nvim_set_hl(0, "NormalFloat", { bg = none })
 

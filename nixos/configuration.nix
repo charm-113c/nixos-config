@@ -312,7 +312,7 @@
 
      # Miscellaneous tools
      git
-     htop
+     # htop
      wget
      # neovim
      ripgrep
@@ -327,7 +327,7 @@
      kanata
      # tmux
      # cbonsai because yes
-     cbonsai
+     # cbonsai
      zip
      unzip
      
@@ -348,7 +348,7 @@
      obsidian
      # anki
      # osu-lazer
-     docker
+     # docker
      # docker-compose
      # ltris # Tetris
      # unityhub
@@ -364,7 +364,7 @@
      feishin
 
      # English word list
-     hunspell
+     # hunspell
      hunspellDicts.en_GB-large
 
      # Languages
@@ -373,11 +373,11 @@
      go
      gnumake
      binutils
-     zulu25 # Open-source JDK
+     # zulu25 # Open-source JDK
      # rars # RISC V Assembler and Runtime Simulator
-     localtunnel
+     # localtunnel
      # spring-boot-cli
-     maven
+     # maven
      # jetbrains.idea
      # mpich
      # h2
