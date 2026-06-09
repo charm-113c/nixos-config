@@ -308,8 +308,11 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-
+  environment.systemPackages = with pkgs;
+    let
+      custom-RStudio = rstudioWrapper.override{ packages = with rPackages; [ ggplot2 igraph dplyr SnowballC tm rmarkdown ]; };
+    in 
+    [
      # Miscellaneous tools
      git
      # htop
@@ -383,6 +386,7 @@
      # h2
      cmake
      # bear
+     custom-RStudio
 
      # All needed for tree-sitter-cli, so hopefully Neovim works fine
      cargo

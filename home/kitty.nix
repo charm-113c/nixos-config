@@ -7,6 +7,8 @@
             background_opacity = 0.65;
             background_blur = 0;
 
+            confirm_os_window_close = 0;
+
             # Font settings
             font_family = "Hurmit Nerd Font";
             font_size = 12.0;
