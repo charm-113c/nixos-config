@@ -345,7 +345,7 @@
 
      # Other software
      focuswriter
-     discord
+     # discord
      # thunderbird
      # libreoffice-qt6-fresh
      obsidian
