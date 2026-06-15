@@ -131,6 +131,7 @@ in
             "Super, F5, exec, hyprshot -m region -o ~/Pictures/Screenshots/" # select region with mouse
             "Super, F6, exec, hyprshot -m output -o ~/Pictures/Screenshots/" # monitor
             "Super, F9, exec, hyprpicker -a" # Find pixel's color and copy it to clipboard
+            "Super, F10, exec, ~/.dotfiles/home/scripts/wallpaper.sh"
 
             "Super, 1, workspace, 1"
             "Super, 2, workspace, 2"
@@ -201,6 +202,7 @@ in
               ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
               ", XF86AudioPlay, exec, playerctl play-pause"
               ", XF86AudioNext, exec, playerctl next"
+              ", XF86AudioPrevious, exec, playerctl previous"
               "Super, Space, exec, playerctl play-pause"
               ", F2, exec, playerctl next"
               ", F1, exec, playerctl previous"
