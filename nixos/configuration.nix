@@ -310,7 +310,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs;
     let
-      custom-RStudio = rstudioWrapper.override{ packages = with rPackages; [ ggplot2 igraph data_table dplyr SnowballC tm rmarkdown readmoRe ]; };
+      custom-RStudio = rstudioWrapper.override{ packages = with rPackages; [ ggplot2 igraph jaccard data_table dplyr SnowballC tm rmarkdown readmoRe ]; };
     in 
     [
      # Miscellaneous tools
