@@ -99,6 +99,7 @@
   };
 
   services.power-profiles-daemon.enable = false;
+  services.thermald.enable = true; # Prevents Intel CPU overheating
   services.tlp = {
     enable = true;
     settings = {
@@ -376,12 +377,12 @@
      go
      gnumake
      binutils
-     # zulu25 # Open-source JDK
+     zulu25 # Open-source JDK
      # rars # RISC V Assembler and Runtime Simulator
      # localtunnel
      # spring-boot-cli
-     # maven
-     # jetbrains.idea
+     maven
+     jetbrains.idea
      # mpich
      # h2
      cmake

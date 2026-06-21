@@ -1,4 +1,3 @@
-#!/bin/bash
 # Script from: https://github.com/sreejithag/battery-charging-limiter-linux
 
 max="$1"
