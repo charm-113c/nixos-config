@@ -2,13 +2,19 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -20,9 +26,9 @@
 
   # Another day, another problem: Nvidia driver not recognised. Run lshw and lo and behold,
   # "NoveCore" is listed as GPU driver. Seems to be Nvidia's open source driver, but not working. Blacklisting it for now.
-  boot.blacklistedKernelModules = ["nova_core"];
-  boot.loader = { 
-    efi = { 
+  boot.blacklistedKernelModules = [ "nova_core" ];
+  boot.loader = {
+    efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot/efi";
     };
@@ -84,7 +90,6 @@
     xserver = {
       enable = true;
 
-
       # Configure keyboard
       xkb = {
         layout = "it";
@@ -100,25 +105,56 @@
 
   services.power-profiles-daemon.enable = false;
   services.thermald.enable = true; # Prevents Intel CPU overheating
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  # services.tlp = {
+  #   enable = true;
+  #   settings = {
+  #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
+  #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  #
+  #     CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  #     CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+  #
+  #     CPU_MIN_PERF_ON_AC = 0;
+  #     CPU_MAX_PERF_ON_AC = 100;
+  #     CPU_MIN_PERF_ON_BAT = 0;
+  #     CPU_MAX_PERF_ON_BAT = 20;
+  #
+  #     # Optional helps save long term battery health
+  #     START_CHARGE_THRESH_BAT1 = 40; # 40 and below it starts to charge
+  #     STOP_CHARGE_THRESH_BAT1 = 60; # 80 and above it stops charging
+  #   };
+  # };
+  # Since the above stopped working after uninstalling Windows, let's try this instead:
+  #-----------------
+  systemd.services.battery-charge-threshold = {
+    description = "Set battery charge threshold to 60%";
 
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+    # These targets ensure the service runs on boot and after waking from sleep
+    wantedBy = [
+      "multi-user.target"
+      "suspend.target"
+      "hibernate.target"
+      "hybrid-sleep.target"
+      "suspend-then-hibernate.target"
+    ];
+    after = [
+      "multi-user.target"
+      "suspend.target"
+      "hibernate.target"
+      "hybrid-sleep.target"
+      "suspend-then-hibernate.target"
+    ];
 
-      CPU_MIN_PERF_ON_AC = 0;
-      CPU_MAX_PERF_ON_AC = 100;
-      CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 20;
-
-      # Optional helps save long term battery health
-      START_CHARGE_THRESH_BAT1 = 40; # 40 and below it starts to charge
-      STOP_CHARGE_THRESH_BAT1 = 60; # 80 and above it stops charging
+    serviceConfig = {
+      Type = "oneshot";
+      # ExecStart = "/bin/sh -c 'echo 60 > /sys/class/power_supply/BAT1/charge_control_end_threshold'";
     };
+
+    script = ''
+      echo 60 > "/sys/class/power_supply/BAT1/charge_control_end_threshold"
+    '';
   };
+  #-----------------
 
   # Use Flatpak to install Vivaldi
   services.flatpak.enable = false;
@@ -129,7 +165,7 @@
   #     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   #   '';
   # };
-    
+
   # services.davfs2.enable = true;
 
   # GPU pkgs version is > 560 so we need
@@ -148,7 +184,7 @@
 
       # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
       # Enable this if you have graphical corruption issues or application crashes after waking
-      # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+      # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
       # of just the bare essentials.
       powerManagement.enable = false;
 
@@ -157,19 +193,19 @@
       open = true;
       nvidiaSettings = true;
 
-      # Using Nvidia PRIME; alternatively, can offload by disabling sync and 
+      # Using Nvidia PRIME; alternatively, can offload by disabling sync and
       # removing "modesetting" from videoDrivers, up above.
       prime = {
-          sync.enable = true;
+        sync.enable = true;
 
-          # offload = {
-          #   enable = true;
-          #   enableOffloadCmd = true;
-          # };
+        # offload = {
+        #   enable = true;
+        #   enableOffloadCmd = true;
+        # };
 
-          intelBusId = "PCI:0:2:0";
-          nvidiaBusId = "PCI:1:0:0";
-         };
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
 
       # API change led to current version (kernel 6.18) failing to build.
       # Using the beta drivers to get fix early
@@ -181,7 +217,7 @@
   # This essentially disables the dGPU and could lead to longer battery life
   specialisation = {
     on-the-go.configuration = {
-      system.nixos.tags = ["on-the-go"];
+      system.nixos.tags = [ "on-the-go" ];
       hardware.nvidia = {
         prime = {
           offload.enable = lib.mkForce true;
@@ -276,11 +312,12 @@
     };
 
     steam = {
-        enable = true;
-        remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-        dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-        localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-      };
+      enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+      gamescopeSession.enable = true;
+    };
 
     # Non-FHS compliance is getting frustrating, can't run some executables
     # So enable this
@@ -288,130 +325,146 @@
 
     # neovim.enable = true;
   };
-  
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.charm = {
     isNormalUser = true;
     description = "Charm";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     packages = with pkgs; [
-    #  thunderbird
-     # zshell
-     zsh
-     zsh-fast-syntax-highlighting
+      #  thunderbird
+      # zshell
+      zsh
+      zsh-fast-syntax-highlighting
     ];
     shell = pkgs.zsh;
   };
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs;
+  environment.systemPackages =
+    with pkgs;
     let
-      custom-RStudio = rstudioWrapper.override{ packages = with rPackages; [ ggplot2 igraph jaccard data_table dplyr SnowballC tm rmarkdown readmoRe ]; };
-    in 
+      custom-RStudio = rstudioWrapper.override {
+        packages = with rPackages; [
+          ggplot2
+          igraph
+          jaccard
+          data_table
+          dplyr
+          SnowballC
+          tm
+          rmarkdown
+          readmoRe
+        ];
+      };
+    in
     [
-     # Miscellaneous tools
-     git
-     # htop
-     wget
-     # neovim
-     ripgrep
-     fd
-     # Allow copy/paste from/to Neovim
-     # xclip
-     fzf
-     # fzf-zsh
-     # mkcert
+      # Miscellaneous tools
+      git
+      # htop
+      wget
+      # neovim
+      ripgrep
+      fd
+      # Allow copy/paste from/to Neovim
+      # xclip
+      fzf
+      # fzf-zsh
+      # mkcert
 
-     # Kanata for keyboard control
-     kanata
-     # tmux
-     # cbonsai because yes
-     # cbonsai
-     zip
-     unzip
-     
-     # Alacritty
-     # alacritty
-     # alacritty-theme
+      # Kanata for keyboard control
+      kanata
+      # tmux
+      # cbonsai because yes
+      # cbonsai
+      zip
+      unzip
 
-     # Gnome things
-     # gnome.gnome-tweaks
-     # gnome-extension-manager
-     # gnomeExtensions.toggle-alacritty
+      # Alacritty
+      # alacritty
+      # alacritty-theme
 
-     # Other software
-     focuswriter
-     discord
-     # thunderbird
-     # libreoffice-qt6-fresh
-     obsidian
-     # anki
-     # osu-lazer
-     # docker
-     # docker-compose
-     # ltris # Tetris
-     # unityhub
-     # aseprite
-     # godot
-     vivaldi
-     # Instal yt-dlp, a feature-rich YT video downloader
-     python313Packages.yt-dlp
-     # Needed to extract audio only from yt-dlp
-     ffmpeg
-     # cmus
-     mpv # General purpose media player, needed for feishin
-     feishin
+      # Gnome things
+      # gnome.gnome-tweaks
+      # gnome-extension-manager
+      # gnomeExtensions.toggle-alacritty
 
-     # English word list
-     # hunspell
-     hunspellDicts.en_GB-large
+      # Other software
+      focuswriter
+      discord
+      # thunderbird
+      # libreoffice-qt6-fresh
+      obsidian
+      # anki
+      # osu-lazer
+      # docker
+      # docker-compose
+      # ltris # Tetris
+      # unityhub
+      # aseprite
+      # godot
+      vivaldi
+      # Instal yt-dlp, a feature-rich YT video downloader
+      python313Packages.yt-dlp
+      # Needed to extract audio only from yt-dlp
+      ffmpeg
+      # cmus
+      mpv # General purpose media player, needed for feishin
+      feishin
 
-     # Languages
-     gcc
-     python3
-     go
-     gnumake
-     binutils
-     zulu25 # Open-source JDK
-     # rars # RISC V Assembler and Runtime Simulator
-     # localtunnel
-     # spring-boot-cli
-     maven
-     jetbrains.idea
-     # mpich
-     # h2
-     cmake
-     # bear
-     custom-RStudio
+      # English word list
+      # hunspell
+      hunspellDicts.en_GB-large
 
-     # All needed for tree-sitter-cli, so hopefully Neovim works fine
-     cargo
-     clang-tools # For C++ to work
-     clang
-     # glibc
-     # libgcc
-     # gdb
-     # Guess I'll need these too, for JSON
-     # nodejs_25
-     # TexLive stuff
-     texliveFull
-     zathura
+      # Languages
+      gcc
+      python3
+      go
+      gnumake
+      binutils
+      zulu25 # Open-source JDK
+      # rars # RISC V Assembler and Runtime Simulator
+      # localtunnel
+      # spring-boot-cli
+      maven
+      jetbrains.idea
+      # mpich
+      # h2
+      cmake
+      # bear
+      custom-RStudio
 
-     hyprland
-     # Hyprland dependencies
-     waybar
-     cava
-  ] # And non-pkgs stuff
-  ++ [
-    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
-    # inputs.kopuz.packages.${pkgs.stdenv.hostPlatform.system}.default
-    # inputs.psysonic.packages.${pkgs.stdenv.hostPlatform.system}.psysonic
-  ];
+      # All needed for tree-sitter-cli, so hopefully Neovim works fine
+      cargo
+      clang-tools # For C++ to work
+      clang
+      # glibc
+      # libgcc
+      # gdb
+      # Guess I'll need these too, for JSON
+      # nodejs_25
+      # TexLive stuff
+      texliveFull
+      zathura
+
+      hyprland
+      # Hyprland dependencies
+      waybar
+      cava
+    ] # And non-pkgs stuff
+    ++ [
+      inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
+      # inputs.kopuz.packages.${pkgs.stdenv.hostPlatform.system}.default
+      # inputs.psysonic.packages.${pkgs.stdenv.hostPlatform.system}.psysonic
+    ];
 
   # For some reason since 25.11 orca installed itself and cannot be disabled
   # So let's try this
@@ -422,7 +475,7 @@
     # daemon.settings = {
     #   data-root = "/home/charm/Programming/Docker";
     # };
-    # being in the docker user group is like being root, hence 
+    # being in the docker user group is like being root, hence
     # the use of rootless. However, I run into permission issues
     # rootless = {
     #   enable = true;
@@ -431,21 +484,21 @@
   };
 
   fonts.packages = with pkgs; [
-     # Nerd fonts now need to be installed one by one
-     nerd-fonts.hack
-     nerd-fonts.ubuntu
-     nerd-fonts.hurmit
-     nerd-fonts.monofur
-     nerd-fonts.space-mono
-     nerd-fonts.ubuntu-mono
-     nerd-fonts.symbols-only
-     nerd-fonts.comic-shanns-mono
-     nerd-fonts.anonymice
-     nerd-fonts.caskaydia-mono
-     nerd-fonts.fantasque-sans-mono
-     nerd-fonts.recursive-mono
-     noto-fonts
-     noto-fonts-cjk-sans
+    # Nerd fonts now need to be installed one by one
+    nerd-fonts.hack
+    nerd-fonts.ubuntu
+    nerd-fonts.hurmit
+    nerd-fonts.monofur
+    nerd-fonts.space-mono
+    nerd-fonts.ubuntu-mono
+    nerd-fonts.symbols-only
+    nerd-fonts.comic-shanns-mono
+    nerd-fonts.anonymice
+    nerd-fonts.caskaydia-mono
+    nerd-fonts.fantasque-sans-mono
+    nerd-fonts.recursive-mono
+    noto-fonts
+    noto-fonts-cjk-sans
   ];
 
   # Amane Kanata!
@@ -458,32 +511,32 @@
     # Hold menu for 300ms+ to switch into writer mode: keys "è + ù à" respectively are transformed into ctrl-arrow combo
     keyboards = {
       "logi".config = ''
-(defsrc
-  caps tab h j k l menu BracketLeft BracketRight Backslash Quote
-)
+        (defsrc
+          caps tab h j k l menu BracketLeft BracketRight Backslash Quote
+        )
 
-(defalias
-  cec (tap-hold 300 300 esc (layer-switch normal))
-  ncec (tap-hold 300 300 esc (layer-switch default))
-  stab (tap-hold 200 200 tab lctl)
-  wing (tap-hold 300 300 (layer-switch normal) (layer-switch writer))
-  nwing (layer-switch default)
-)
+        (defalias
+          cec (tap-hold 300 300 esc (layer-switch normal))
+          ncec (tap-hold 300 300 esc (layer-switch default))
+          stab (tap-hold 200 200 tab lctl)
+          wing (tap-hold 300 300 (layer-switch normal) (layer-switch writer))
+          nwing (layer-switch default)
+        )
 
-(deflayer default
-  @cec @stab h j k l @wing BracketLeft BracketRight Backslash Quote
-)
+        (deflayer default
+          @cec @stab h j k l @wing BracketLeft BracketRight Backslash Quote
+        )
 
-(deflayer normal ;; toggles VIM-like normal mode
-  @ncec @stab ArrowLeft ArrowDown ArrowUp ArrowRight @nwing BracketLeft BracketRight Backslash Quote
+        (deflayer normal ;; toggles VIM-like normal mode
+          @ncec @stab ArrowLeft ArrowDown ArrowUp ArrowRight @nwing BracketLeft BracketRight Backslash Quote
 
-)
+        )
 
-(deflayer writer
-  @ncec @stab h j k l @nwing ArrowLeft ArrowUp ArrowRight ArrowDown
-)
+        (deflayer writer
+          @ncec @stab h j k l @nwing ArrowLeft ArrowUp ArrowRight ArrowDown
+        )
       '';
-      };
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -515,12 +568,18 @@
 
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       auto-optimise-store = true;
 
       # Enable Cachix for Hyprland and Kopuz cache
-      substituters = ["https://hyprland.cachix.org" "https://cache.nixos.org" ]; # "https://psysonic.cachix.org"]; # "https://kopuz.cachix.org"];
-      trusted-substituters = ["https://hyprland.cachix.org"];
+      substituters = [
+        "https://hyprland.cachix.org"
+        "https://cache.nixos.org"
+      ]; # "https://psysonic.cachix.org"]; # "https://kopuz.cachix.org"];
+      trusted-substituters = [ "https://hyprland.cachix.org" ];
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         # Kopuz music player
@@ -546,6 +605,6 @@
   security.polkit.enable = true; # Omarun!
 
   environment.variables = rec {
-      EDITOR = "nvim";
-    };
+    EDITOR = "nvim";
+  };
 }
