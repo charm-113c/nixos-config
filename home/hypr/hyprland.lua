@@ -8,7 +8,6 @@ hl.env("NIXOS_OZONE_WL", "1")
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("waybar")
-	hl.exec_cmd("aww-daemon &")
 	hl.exec_cmd("/home/charm/.dotfiles/home/scripts/wallpaper.sh")
 	hl.exec_cmd("fcitx5")
 end)
@@ -78,8 +77,8 @@ hl.config({
 
 	group = {
 		col = {
-			active = tab_active_col,
-			inactive = tab_inactive_col,
+			-- active = tab_active_col,
+			-- inactive = tab_inactive_col,
 			border_active = tab_active_col,
 			border_inactive = "rgba(ff000088)",
 		},
@@ -92,20 +91,20 @@ hl.config({
 
 	misc = {
 		animate_manual_resizes = true,
-		on_focus_under_fullscrenn = 2,
+		on_focus_under_fullscreen = 2,
 	},
 })
 
 hl.window_rule({ match = { class = "Arma 3" }, confine_pointer = true })
 
-hl.bind("Super + W", hl.dsp.exec_cmd("vivaldi"))
-hl.bind("Super + F", hl.dsp.exec_cmd("thunar"))
-hl.bind("Super + Q", hl.dsp.exec_cmd('kitty --title \'TF Euler - "Sine Pari"'))
-hl.bind("Super + P", hl.dsp.exec_cmd("focuswriter"))
-hl.bind("Super + W", hl.dsp.exec_cmd('rofi -show combi -combi-modes "window,drun" -modes'))
+hl.bind("SUPER + W", hl.dsp.exec_cmd("vivaldi"))
+hl.bind("SUPER + F", hl.dsp.exec_cmd("thunar"))
+hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty --title 'TF Euler - \"Sine Pari\"'"))
+hl.bind("SUPER + P", hl.dsp.exec_cmd("focuswriter"))
+hl.bind("SUPER + A", hl.dsp.exec_cmd('rofi -show combi -combi-modes "window,drun" -modes'))
 
-hl.bind("Super + Backspace", hl.dsp.window.close({ window = "activewindow" }))
-hl.bind("Super + T", hl.dsp.group({ window = "activewindow" }))
+hl.bind("SUPER + BACKSPACE", hl.dsp.window.close({ window = "activewindow" }))
+hl.bind("SUPER + T", hl.dsp.group.toggle({ window = "activewindow" }))
 
 hl.bind("F3", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"), { repeating = true })
 hl.bind("F4", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"), { repeating = true })
@@ -115,42 +114,47 @@ hl.bind("F7", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true })
 hl.bind("F8", hl.dsp.exec_cmd("brightnessctl set 5%+"), { repeating = true })
 --
 -- Screenshot a region and save it to Screenshots
-hl.bind("Super + F5", hl.dsp.exec_cmd("hyprshot -n region -o ~/Pictures/Screenshots"))
+hl.bind("SUPER + F5", hl.dsp.exec_cmd("hyprshot -n region -o ~/Pictures/Screenshots"))
 -- Screenshot a monitor and save it to Screenshots
-hl.bind("Super + F6", hl.dsp.exec_cmd("hyprshot -n output -o ~/Pictures/Screenshots"))
+hl.bind("SUPER + F6", hl.dsp.exec_cmd("hyprshot -n output -o ~/Pictures/Screenshots"))
 -- Copy screen pixel colour to clipboard
-hl.bind("Super + F9", hl.dsp.exec_cmd("hyprpicker -a"))
-hl.bind("Super + F10", hl.dsp.exec_cmd("~/.dotfiles/home/scripts/wallpaper.sh"))
-hl.bind("Super + F11", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle", window = "activewindow" }))
+hl.bind("SUPER + F9", hl.dsp.exec_cmd("hyprpicker -a"))
+hl.bind("SUPER + F10", hl.dsp.exec_cmd("~/.dotfiles/home/scripts/wallpaper.sh"))
+hl.bind("SUPER + F11", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle", window = "activewindow" }))
 
-hl.bind("Super + Space", hl.dsp.exec_cmd("playerctl play-pause"))
+hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("F1", hl.dsp.exec_cmd("playerctl next"))
 hl.bind("F2", hl.dsp.exec_cmd("playerctl previous"))
 
+hl.bind("SUPER + 1", hl.dsp.focus({ workspace = 1, on_current_monitor = false }))
+hl.bind("SUPER + 2", hl.dsp.focus({ workspace = 2, on_current_monitor = false }))
+hl.bind("SUPER + 3", hl.dsp.focus({ workspace = 3, on_current_monitor = false }))
+hl.bind("SUPER + 4", hl.dsp.focus({ workspace = 4, on_current_monitor = false }))
+hl.bind("SUPER + 5", hl.dsp.focus({ workspace = 5, on_current_monitor = false }))
+hl.bind("SUPER + 6", hl.dsp.focus({ workspace = 6, on_current_monitor = false }))
+hl.bind("SUPER + 7", hl.dsp.focus({ workspace = 7, on_current_monitor = false }))
+hl.bind("SUPER + 8", hl.dsp.focus({ workspace = 8, on_current_monitor = false }))
+hl.bind("SUPER + 9", hl.dsp.focus({ workspace = 9, on_current_monitor = false }))
+hl.bind("SUPER + 0", hl.dsp.focus({ workspace = 10, on_current_monitor = false }))
+
 for i = 1, 10 do
-	hl.bind("Super + " .. (i % 10), function()
-		hl.dispatch(hl.dsp.window.focus({ workspace = i, on_current_monitor = false }))
+	hl.bind("SUPER + SHIFT + " .. (i % 10), function()
+		hl.dispatch(hl.dsp.window.move({ workspace = i, follow = true }))
 	end, { description = "Window: Send to workspace " .. i })
 end
 
-for i = 1, 10 do
-	hl.bind("Super + Shift + " .. (i % 10), function()
-		hl.dispatch(hl.dsp.window.move({ workspace = i, follow = false }))
-	end, { description = "Window: Send to workspace " .. i })
-end
+hl.bind("SUPER + H", hl.dsp.focus({ direction = "l" }))
+hl.bind("SUPER + J", hl.dsp.focus({ direction = "d" }))
+hl.bind("SUPER + K", hl.dsp.focus({ direction = "u" }))
+hl.bind("SUPER + L", hl.dsp.focus({ direction = "r" }))
 
-hl.bind("Super + H", hl.dsp.focus({ direction = "l" }))
-hl.bind("Super + J", hl.dsp.focus({ direction = "d" }))
-hl.bind("Super + K", hl.dsp.focus({ direction = "u" }))
-hl.bind("Super + L", hl.dsp.focus({ direction = "r" }))
+hl.bind("SUPER + SHIFT + H", hl.dsp.window.move({ into_group = "l" }))
+hl.bind("SUPER + SHIFT + L", hl.dsp.window.move({ into_group = "r" }))
+hl.bind("SUPER + ALT + H", hl.dsp.window.move({ out_of_group = "l" }))
+hl.bind("SUPER + ALT + L", hl.dsp.window.move({ out_of_group = "r" }))
 
-hl.bind("Super + H", hl.dsp.move({ into_group = "l" }))
-hl.bind("Super + L", hl.dsp.move({ into_group = "r" }))
-hl.bind("Super + H", hl.dsp.move({ out_of_group = "l" }))
-hl.bind("Super + L", hl.dsp.move({ out_of_group = "r" }))
-
-hl.bind("Super + Control + H", hl.dsp.group.prev({ window = "activewindow" }))
-hl.bind("Super + Control + L", hl.dsp.group.next({ window = "activewindow" }))
+hl.bind("SUPER + CONTROL + H", hl.dsp.group.prev({ window = "activewindow" }))
+hl.bind("SUPER + CONTROL + L", hl.dsp.group.next({ window = "activewindow" }))
 
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag())
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize())

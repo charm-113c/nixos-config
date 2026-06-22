@@ -10,7 +10,7 @@ i=$((RANDOM % ${#wallpapers[@]}))
 
 # Use awww instead
 # awww kill # In case daemon is active
-# awww-daemon &
+awww-daemon &
 
 awww img "${wallpapers[$i]}" & #--resize=stretch &
 # Run hyprpaper
