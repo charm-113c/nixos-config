@@ -12,7 +12,8 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("fcitx5")
 end)
 
-hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
+-- Toggle disabled on and off as wanted
+hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1, disabled = false })
 hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "1920x0", scale = 1 })
 
 hl.workspace_rule({ workspace = "1", monitor = "eDP-1", persistent = true })
@@ -94,8 +95,6 @@ hl.config({
 		on_focus_under_fullscreen = 2,
 	},
 })
-
-hl.window_rule({ match = { class = "Arma 3" }, confine_pointer = true })
 
 hl.bind("SUPER + W", hl.dsp.exec_cmd("vivaldi"))
 hl.bind("SUPER + F", hl.dsp.exec_cmd("thunar"))
