@@ -122,8 +122,11 @@ hl.bind("SUPER + F10", hl.dsp.exec_cmd("~/.dotfiles/home/scripts/wallpaper.sh"))
 hl.bind("SUPER + F11", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle", window = "activewindow" }))
 
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("playerctl play-pause"))
-hl.bind("F1", hl.dsp.exec_cmd("playerctl next"))
-hl.bind("F2", hl.dsp.exec_cmd("playerctl previous"))
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
+hl.bind("F1", hl.dsp.exec_cmd("playerctl previous"))
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
+hl.bind("F2", hl.dsp.exec_cmd("playerctl next"))
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
 
 hl.bind("SUPER + 1", hl.dsp.focus({ workspace = 1, on_current_monitor = false }))
 hl.bind("SUPER + 2", hl.dsp.focus({ workspace = 2, on_current_monitor = false }))
