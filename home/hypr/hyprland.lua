@@ -113,9 +113,9 @@ hl.bind("F7", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true })
 hl.bind("F8", hl.dsp.exec_cmd("brightnessctl set 5%+"), { repeating = true })
 --
 -- Screenshot a region and save it to Screenshots
-hl.bind("SUPER + F5", hl.dsp.exec_cmd("hyprshot -n region -o ~/Pictures/Screenshots"))
+hl.bind("SUPER + F5", hl.dsp.exec_cmd("hyprshot -m region -o ~/Pictures/Screenshots"))
 -- Screenshot a monitor and save it to Screenshots
-hl.bind("SUPER + F6", hl.dsp.exec_cmd("hyprshot -n output -o ~/Pictures/Screenshots"))
+hl.bind("SUPER + F6", hl.dsp.exec_cmd("hyprshot -m output -o ~/Pictures/Screenshots"))
 -- Copy screen pixel colour to clipboard
 hl.bind("SUPER + F9", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind("SUPER + F10", hl.dsp.exec_cmd("~/.dotfiles/home/scripts/wallpaper.sh"))
