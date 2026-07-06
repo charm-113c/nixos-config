@@ -353,21 +353,21 @@
   # $ nix search wget
   environment.systemPackages =
     with pkgs;
-    # let
-    #   custom-RStudio = rstudioWrapper.override {
-    #     packages = with rPackages; [
-    #       ggplot2
-    #       igraph
-    #       jaccard
-    #       data_table
-    #       dplyr
-    #       SnowballC
-    #       tm
-    #       rmarkdown
-    #       readmoRe
-    #     ];
-    #   };
-    # in
+    let
+      custom-RStudio = rstudioWrapper.override {
+        packages = with rPackages; [
+          ggplot2
+          igraph
+          jaccard
+          data_table
+          dplyr
+          SnowballC
+          tm
+          rmarkdown
+          readmoRe
+        ];
+      };
+    in
     [
       # Miscellaneous tools
       git
@@ -442,7 +442,7 @@
       # h2
       cmake
       # bear
-      # custom-RStudio
+      custom-RStudio
 
       # All needed for tree-sitter-cli, so hopefully Neovim works fine
       cargo
