@@ -357,12 +357,11 @@
       custom-RStudio = rstudioWrapper.override {
         packages = with rPackages; [
           ggplot2
+          hashmapR
           igraph
-          jaccard
           data_table
-          dplyr
-          SnowballC
-          tm
+          sna
+          statnet
           rmarkdown
           readmoRe
         ];
@@ -403,7 +402,7 @@
       focuswriter
       discord
       # thunderbird
-      # libreoffice-qt6-fresh
+      libreoffice
       obsidian
       # anki
       # osu-lazer
@@ -437,12 +436,12 @@
       # localtunnel
       # spring-boot-cli
       maven
-      jetbrains.idea
+      # jetbrains.idea
       # mpich
       # h2
       cmake
       # bear
-      custom-RStudio
+      # custom-RStudio
 
       # All needed for tree-sitter-cli, so hopefully Neovim works fine
       cargo
