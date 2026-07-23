@@ -436,7 +436,7 @@
       # localtunnel
       # spring-boot-cli
       maven
-      # jetbrains.idea
+      jetbrains.idea
       # mpich
       # h2
       cmake
@@ -472,16 +472,16 @@
   services.orca.enable = false;
 
   virtualisation.docker = {
-    enable = false;
-    # daemon.settings = {
-    #   data-root = "/home/charm/Programming/Docker";
-    # };
+    enable = true;
+    daemon.settings = {
+      data-root = "/home/charm/Programming/Docker";
+    };
     # being in the docker user group is like being root, hence
     # the use of rootless. However, I run into permission issues
-    # rootless = {
-    #   enable = true;
-    #   setSocketVariable = true;
-    # };
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
 
   fonts.packages = with pkgs; [
