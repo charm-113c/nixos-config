@@ -441,7 +441,7 @@
       # h2
       cmake
       # bear
-      custom-RStudio
+      # custom-RStudio
 
       # All needed for tree-sitter-cli, so hopefully Neovim works fine
       cargo
