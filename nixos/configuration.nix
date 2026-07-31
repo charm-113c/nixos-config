@@ -442,6 +442,7 @@
       cmake
       # bear
       # custom-RStudio
+      zerotierone
 
       # All needed for tree-sitter-cli, so hopefully Neovim works fine
       cargo
@@ -470,6 +471,11 @@
   # For some reason since 25.11 orca installed itself and cannot be disabled
   # So let's try this
   services.orca.enable = false;
+
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [ "a581878f7d6011fc" ];
+  };
 
   virtualisation.docker = {
     enable = true;
@@ -554,7 +560,14 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall = {
+    enable = true;
+    allowedUDPPorts = [
+      2302
+      2303
+      27015
+    ];
+  };
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
