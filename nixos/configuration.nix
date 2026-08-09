@@ -420,6 +420,7 @@
       # cmus
       mpv # General purpose media player, needed for feishin
       feishin
+      foliate # To read books
 
       # English word list
       # hunspell
