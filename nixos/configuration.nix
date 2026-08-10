@@ -436,7 +436,7 @@
       # rars # RISC V Assembler and Runtime Simulator
       # localtunnel
       # spring-boot-cli
-      maven
+      maven_4
       jetbrains.idea
       # mpich
       # h2
