@@ -426,7 +426,7 @@
       # hunspell
       hunspellDicts.en_GB-large
 
-      # Languages
+      # Programming-related
       gcc
       python3
       go
@@ -443,7 +443,8 @@
       cmake
       # bear
       # custom-RStudio
-      zerotierone
+      zerotierone # Allow virtual LAN
+      devenv # Develop in custom envs more easily than with (flakes +) nix-shell
 
       # All needed for tree-sitter-cli, so hopefully Neovim works fine
       cargo
