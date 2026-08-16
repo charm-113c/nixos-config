@@ -380,6 +380,7 @@
       fzf
       # fzf-zsh
       # mkcert
+      nixos-firewall-tool # Allow temporarily changing firewall rules
 
       # Kanata for keyboard control
       kanata
@@ -564,11 +565,10 @@
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedUDPPorts = [
-      2302
-      2303
-      27015
-    ];
+
+    logRefusedConnections = true;
+    logRefusedPackets = true;
+    # Can be read through dmesg or journalctl -k
   };
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
