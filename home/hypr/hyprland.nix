@@ -14,6 +14,7 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    # plugins = [ inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3 ]; # So apparently Hyprland devs like moving stuff around, and build is failing cause Window.hpp is not found. Perhaps the error is mine, but we'll wait and see
     # Use pkg from NixOS modules
     package = null;
     portalPackage = null;

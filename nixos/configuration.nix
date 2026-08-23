@@ -438,7 +438,7 @@
       # localtunnel
       # spring-boot-cli
       maven_4
-      jetbrains.idea
+      # jetbrains.idea
       # mpich
       # h2
       cmake
