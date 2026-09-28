@@ -449,6 +449,8 @@
       # custom-RStudio
       zerotierone # Allow virtual LAN
       devenv # Develop in custom envs more easily than with (flakes +) nix-shell
+      # eas-cli from nixpkgs is outdated, so installing it through npm
+      # eas-cli # For building native mobile apps in Expo Cloud, getting prod-like dev experience
 
       # All needed for tree-sitter-cli, so hopefully Neovim works fine
       cargo
