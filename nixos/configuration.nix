@@ -425,6 +425,7 @@
       mpv # General purpose media player, needed for feishin
       feishin
       foliate # To read books
+      atac # For API dev, like Postman but FOSS
 
       # English word list
       # hunspell
@@ -451,6 +452,9 @@
       devenv # Develop in custom envs more easily than with (flakes +) nix-shell
       # eas-cli from nixpkgs is outdated, so installing it through npm
       # eas-cli # For building native mobile apps in Expo Cloud, getting prod-like dev experience
+
+      positron-bin # Alternative to rStudio which fails to build every other Thursday
+      R
 
       # All needed for tree-sitter-cli, so hopefully Neovim works fine
       cargo
