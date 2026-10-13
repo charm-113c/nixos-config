@@ -388,6 +388,7 @@
       # tmux
       # cbonsai because yes
       # cbonsai
+      peaclock
       zip
       unzip
       astroterm # Cool thing
