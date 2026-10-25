@@ -75,7 +75,7 @@
     fcitx5 = {
       waylandFrontend = true;
       addons = with pkgs; [
-        fcitx5-mozc
+        # fcitx5-mozc
         # fcitx5-gtk
       ];
     };
@@ -257,7 +257,7 @@
 
     # Self-hosted music streaming service
     navidrome = {
-      enable = true;
+      enable = false;
       # user = "charm";
       # group = "users";
 
@@ -355,18 +355,18 @@
   environment.systemPackages =
     with pkgs;
     let
-      custom-RStudio = rstudioWrapper.override {
-        packages = with rPackages; [
-          ggplot2
-          hashmapR
-          igraph
-          data_table
-          sna
-          statnet
-          rmarkdown
-          readmoRe
-        ];
-      };
+      # custom-RStudio = rstudioWrapper.override {
+      #   packages = with rPackages; [
+      #     ggplot2
+      #     hashmapR
+      #     igraph
+      #     data_table
+      #     sna
+      #     statnet
+      #     rmarkdown
+      #     readmoRe
+      #   ];
+      # };
     in
     [
       # Miscellaneous tools
@@ -454,8 +454,8 @@
       # eas-cli from nixpkgs is outdated, so installing it through npm
       # eas-cli # For building native mobile apps in Expo Cloud, getting prod-like dev experience
 
-      positron-bin # Alternative to rStudio which fails to build every other Thursday
-      R
+      # positron-bin # Alternative to rStudio which fails to build every other Thursday
+      # R
 
       # All needed for tree-sitter-cli, so hopefully Neovim works fine
       cargo
