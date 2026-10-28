@@ -257,7 +257,7 @@
 
     # Self-hosted music streaming service
     navidrome = {
-      enable = false;
+      enable = true;
       # user = "charm";
       # group = "users";
 
@@ -267,6 +267,7 @@
         EnableSharing = true;
         Address = "0.0.0.0";
         Port = 4533;
+        Plugins.Enabled = false; # Build fails without this, somewhen in 26.11
       };
     };
   };
