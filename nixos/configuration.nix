@@ -75,7 +75,7 @@
     fcitx5 = {
       waylandFrontend = true;
       addons = with pkgs; [
-        # fcitx5-mozc
+        fcitx5-mozc
         # fcitx5-gtk
       ];
     };
@@ -296,6 +296,7 @@
         getHotspot = "nmcli device wifi list && nmcli device wifi connect \"Nightingale I\"";
         snowfall = "~ && systemd-inhibit --what=idle ./snow.sh";
         starsky = "~ && systemd-inhibit --what=idle astroterm -mcCu --fps 64 --city Amsterdam";
+        symonitor = "~ && systemd-inhibit --what=idle btop";
       };
 
       # I'm also making use of Powerlevel10k
