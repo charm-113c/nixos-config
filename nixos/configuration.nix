@@ -384,6 +384,7 @@
       # fzf-zsh
       # mkcert
       nixos-firewall-tool # Allow temporarily changing firewall rules
+      blueman
 
       # Kanata for keyboard control
       kanata
@@ -488,7 +489,7 @@
   services.orca.enable = false;
 
   services.zerotierone = {
-    enable = true;
+    enable = false;
     joinNetworks = [ "a581878f7d6011fc" ];
   };
 

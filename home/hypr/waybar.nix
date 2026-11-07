@@ -136,7 +136,7 @@ in
         };
 
         "bluetooth" = {
-          "on-click" = "kitty -e bluetoothctl";
+          "on-click" = "blueman-manager";
           "format-connected" = "";
           "format-connected-battery" = " {device_battery_percentage}%";
           "format" = "";
